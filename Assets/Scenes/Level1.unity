@@ -339,11 +339,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Left or Right arrow keys/AD keys - player movement
+  m_Text: 'Arrow/WASD keys - player movement
 
 
-    Buttons will
-    appear in-game to interact with objects'
+    Buttons will appear in-game to
+    interact with objects'
 --- !u!222 &95268993
 CanvasRenderer:
   m_ObjectHideFlags: 0

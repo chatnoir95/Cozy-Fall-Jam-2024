@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private float horizontalMovement;
+    private float verticalMovement;
+
     private float playerSpeed;
 
     public static GameObject playerCharacters;
@@ -20,8 +22,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontalMovement = Input.GetAxis("Horizontal");
+        horizontalMovement = Input.GetAxis("Horizontal");
+        verticalMovement = Input.GetAxis("Vertical");
 
-        transform.Translate(horizontalMovement * playerSpeed * Time.deltaTime, 0.0f, 0.0f);
+        transform.Translate(horizontalMovement * playerSpeed * Time.deltaTime,
+            verticalMovement * playerSpeed * Time.deltaTime, 0.0f);
     }
 }
