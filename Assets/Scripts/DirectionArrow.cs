@@ -22,7 +22,7 @@ public class DirectionArrow : MonoBehaviour
         if (store.transform.position.x < Player.playerCharacters.transform.position.x &&
             store.transform.position.y == Player.playerCharacters.transform.position.y)
         {
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 90.0f);
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 180.0f);
         }
 
         /* If the store's y position is equal to the player's y position and player's x position is less than
@@ -30,7 +30,7 @@ public class DirectionArrow : MonoBehaviour
         else if (store.transform.position.x > Player.playerCharacters.transform.position.x &&
             store.transform.position.y == Player.playerCharacters.transform.position.y)
         {
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, -90.0f);
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
         }
 
         /* If the store's y position is less than the player's y position and player's x position is greater than
@@ -54,7 +54,7 @@ public class DirectionArrow : MonoBehaviour
         else if (store.transform.position.x > Player.playerCharacters.transform.position.x &&
             store.transform.position.y < Player.playerCharacters.transform.position.y)
         {
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 135.0f);
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 315.0f);
         }
 
         /* If the store's y position is greater than the player's y position and player's x position is less than
@@ -62,7 +62,7 @@ public class DirectionArrow : MonoBehaviour
         else if (store.transform.position.x > Player.playerCharacters.transform.position.x &&
             store.transform.position.y > Player.playerCharacters.transform.position.y)
         {
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, -135.0f);
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, -315.0f);
         }
 
         /* If the store's y position is less than the player's y position and player's x position is equal to
@@ -70,7 +70,7 @@ public class DirectionArrow : MonoBehaviour
         else if (store.transform.position.x == Player.playerCharacters.transform.position.x &&
             store.transform.position.y < Player.playerCharacters.transform.position.y)
         {
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 180.0f);
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, -90.0f);
         }
 
         /* If the store's y position is greater than the player's y position and player's x position is equal to
@@ -78,7 +78,7 @@ public class DirectionArrow : MonoBehaviour
         else if (store.transform.position.x == Player.playerCharacters.transform.position.x &&
             store.transform.position.y > Player.playerCharacters.transform.position.y)
         {
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 90.0f);
         }
     }
 }
