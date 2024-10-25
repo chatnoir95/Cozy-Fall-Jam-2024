@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SelectCharacter : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class SelectCharacter : MonoBehaviour
     private GameObject apple;
 
     private bool isGamePaused;
+
+    private Text signControlsText;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +38,8 @@ public class SelectCharacter : MonoBehaviour
 
         store = GameObject.Find("Store");
 
+        signControlsText = GameObject.Find("Character Select Canvas/Sign Controls Text").GetComponent<Text>();
+
         // Let's hide the squirrels at start
         squirrel1.SetActive(false);
         squirrel2.SetActive(false);
@@ -48,6 +53,8 @@ public class SelectCharacter : MonoBehaviour
         // Show the character selector canvas but hide level 1 canvas
         characterSelectorCanvas.gameObject.SetActive(true);
         level1Canvas.gameObject.SetActive(false);
+
+        signControlsText.gameObject.SetActive(false);
 
         // We want to set game paused to true at start of game
         isGamePaused = true;
@@ -181,5 +188,18 @@ public class SelectCharacter : MonoBehaviour
         directionArrow.SetActive(false);
 
         isGamePaused = true; // Pause the game for us
+    }
+
+    public void OnMouseDown()
+    {
+        if (signControlsText.gameObject.activeInHierarchy)
+        {
+            signControlsText.gameObject.SetActive(false);
+        }
+
+        else if (!signControlsText.gameObject.activeInHierarchy)
+        {
+            signControlsText.gameObject.SetActive(true);
+        }
     }
 }
