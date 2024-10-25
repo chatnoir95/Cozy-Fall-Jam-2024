@@ -39,6 +39,7 @@ public class Food : MonoBehaviour
 
         if (collision.gameObject.tag == "Store" && SelectCharacter.directionArrow.activeInHierarchy) // changed
         {
+            GoldScript.instance.AddRemouveGold(10); // add gold 
             Destroy(gameObject);
 
             SelectCharacter.directionArrow.SetActive(false); // changed
