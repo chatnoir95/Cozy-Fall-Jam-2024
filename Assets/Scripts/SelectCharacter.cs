@@ -20,6 +20,10 @@ public class SelectCharacter : MonoBehaviour
 
     private Text signControlsText;
 
+    private AudioSource gameMusic;
+
+    private List<float> gameMusicClipTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +44,8 @@ public class SelectCharacter : MonoBehaviour
 
         signControlsText = GameObject.Find("Character Select Canvas/Sign Controls Text").GetComponent<Text>();
 
+        gameMusic = GameObject.Find("GameMusic").GetComponent<AudioSource>();
+
         // Let's hide the squirrels at start
         squirrel1.SetActive(false);
         squirrel2.SetActive(false);
@@ -58,11 +64,64 @@ public class SelectCharacter : MonoBehaviour
 
         // We want to set game paused to true at start of game
         isGamePaused = true;
+
+        // Play the first cozy track
+        gameMusic.clip = Resources.Load<AudioClip>("Music/GGA_CozyTrack_1");
+
+        gameMusicClipTime = new List<float> { 0.0f, 0.0f };
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Set the game music time equal to the first clip time to resume playing the first music
+        if (gameMusic.time <= 0.0f && gameMusic.clip == Resources.Load<AudioClip>("Music/GGA_CozyTrack_1"))
+        {
+            gameMusic.time = gameMusicClipTime[0];
+        }
+
+        // Set the game music time equal to the second clip time to resume playing the second music
+        else if (gameMusic.time <= 0.0f && gameMusic.clip == Resources.Load<AudioClip>("Music/GGA_CozyTrack_2"))
+        {
+            gameMusic.time = gameMusicClipTime[1];
+        }
+
+        // If the game music clip is equal to the first track, increment the first music clip timer
+        if (gameMusic.clip == Resources.Load<AudioClip>("Music/GGA_CozyTrack_1"))
+        {
+            gameMusicClipTime[0] = gameMusic.time;
+            gameMusicClipTime[1] += 0.0f;
+
+            //Debug.Log(gameMusicClipTime[0] + " : " + gameMusicClipTime[1]);
+
+            // Reset the first clip timer once it's equal to the length of the first track
+            if (gameMusicClipTime[0] > 32.064f)
+            {
+                gameMusicClipTime[0] = 0.0f;
+            }
+        }
+
+        // If the game music clip is equal to the second track, increment the second music clip timer
+        else if (gameMusic.clip == Resources.Load<AudioClip>("Music/GGA_CozyTrack_2"))
+        {
+            gameMusicClipTime[0] += 0.0f;
+            gameMusicClipTime[1] = gameMusic.time;
+
+            //Debug.Log(gameMusicClipTime[0] + " : " + gameMusicClipTime[1]);
+
+            // Reset the second clip timer once it's equal to the length of the second track
+            if (gameMusicClipTime[1] > 37.2f)
+            {
+                gameMusicClipTime[1] = 0.0f;
+            }
+        }
+
+        // If the game music isn't playing, then play the game music for us
+        if (!gameMusic.isPlaying)
+        {
+            gameMusic.Play();
+        }
+
         // If game paused is set to true, then pause the game
         if (isGamePaused == true)
         {
@@ -102,6 +161,9 @@ public class SelectCharacter : MonoBehaviour
         level1Canvas.gameObject.SetActive(true);
 
         isGamePaused = false; // Resume the game for us
+
+        // Play the second cozy track
+        gameMusic.clip = Resources.Load<AudioClip>("Music/GGA_CozyTrack_2");
     }
 
     public void PressSquirrel2Button()
@@ -130,6 +192,9 @@ public class SelectCharacter : MonoBehaviour
         level1Canvas.gameObject.SetActive(true);
 
         isGamePaused = false; // Resume the game for us
+
+        // Play the second cozy track
+        gameMusic.clip = Resources.Load<AudioClip>("Music/GGA_CozyTrack_2");
     }
 
     public void PressSquirrel3Button()
@@ -158,6 +223,9 @@ public class SelectCharacter : MonoBehaviour
         level1Canvas.gameObject.SetActive(true);
 
         isGamePaused = false; // Resume the game for us
+
+        // Play the second cozy track
+        gameMusic.clip = Resources.Load<AudioClip>("Music/GGA_CozyTrack_2");
     }
 
     public void PressCharacterSelectorButton()
@@ -188,6 +256,9 @@ public class SelectCharacter : MonoBehaviour
         directionArrow.SetActive(false);
 
         isGamePaused = true; // Pause the game for us
+
+        // Play the first cozy track
+        gameMusic.clip = Resources.Load<AudioClip>("Music/GGA_CozyTrack_1");
     }
 
     public void OnMouseDown()
