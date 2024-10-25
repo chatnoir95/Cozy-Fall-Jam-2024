@@ -7,9 +7,13 @@ public class Player : MonoBehaviour
     private float horizontalMovement;
     private float playerSpeed;
 
+    public static GameObject playerCharacters;
+
     // Start is called before the first frame update
     void Start()
     {
+        playerCharacters = GameObject.Find("Player Characters");
+
         playerSpeed = 5.0f;
     }
 

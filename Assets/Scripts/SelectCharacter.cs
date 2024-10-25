@@ -9,15 +9,13 @@ public class SelectCharacter : MonoBehaviour
     private Canvas level1Canvas;
 
     private GameObject squirrel1, squirrel2, squirrel3;
-    public static GameObject directionArrow; // changed
+    public static GameObject directionArrow;
 
     private GameObject store;
 
     private GameObject apple;
 
     private bool isGamePaused;
-
-    static bool choseSquirrel1, choseSquirrel2, choseSquirrel3;
 
     // Start is called before the first frame update
     void Start()
@@ -53,10 +51,6 @@ public class SelectCharacter : MonoBehaviour
 
         // We want to set game paused to true at start of game
         isGamePaused = true;
-
-        choseSquirrel1 = false;
-        choseSquirrel2 = false;
-        choseSquirrel3 = false;
     }
 
     // Update is called once per frame
