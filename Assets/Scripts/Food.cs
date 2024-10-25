@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Food : MonoBehaviour
 {
@@ -46,7 +47,9 @@ public class Food : MonoBehaviour
         {
             // Place the food object on the player
             gameObject.transform.SetParent(Player.playerCharacters.transform, true);
-
+            
+            DeliveryManager.instance.SpawnDeliveryArea(); // spawn the delivery target at a ramdom location 
+            
             showDirectionArrow = true; // Show the direction arrow for delivery area
         }
 

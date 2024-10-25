@@ -155,7 +155,7 @@ public class SelectCharacter : MonoBehaviour
             apple.SetActive(true);
         }
 
-        store.SetActive(true);
+        store.SetActive(true); // delivery location will spawn at a random location after picking item
 
         // Show the level 1 canvas
         level1Canvas.gameObject.SetActive(true);
