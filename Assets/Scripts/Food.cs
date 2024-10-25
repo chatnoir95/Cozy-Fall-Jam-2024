@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
-    private GameObject directionArrow;
     public static bool showDirectionArrow;
 
     // Start is called before the first frame update
     void Start()
     {
-        directionArrow = GameObject.Find("Direction Arrow");
-
         showDirectionArrow = false;
     }
 
@@ -20,12 +17,12 @@ public class Food : MonoBehaviour
     {
         if (showDirectionArrow)
         {
-            directionArrow.SetActive(true);
+            SelectCharacter.directionArrow.SetActive(true); // changed
         }
 
         if (!showDirectionArrow)
         {
-            directionArrow.SetActive(false);
+            SelectCharacter.directionArrow.SetActive(false); // changed
         }
     }
 
@@ -40,11 +37,11 @@ public class Food : MonoBehaviour
             showDirectionArrow = true;
         }
 
-        if (collision.gameObject.tag == "Store" && directionArrow.activeInHierarchy)
+        if (collision.gameObject.tag == "Store" && SelectCharacter.directionArrow.activeInHierarchy) // changed
         {
             Destroy(gameObject);
 
-            directionArrow.SetActive(false);
+            SelectCharacter.directionArrow.SetActive(false); // changed
 
             showDirectionArrow = false;
         }

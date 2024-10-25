@@ -9,7 +9,7 @@ public class SelectCharacter : MonoBehaviour
     private Canvas level1Canvas;
 
     private GameObject squirrel1, squirrel2, squirrel3;
-    private GameObject directionArrow;
+    public static GameObject directionArrow; // changed
 
     private GameObject store;
 
@@ -31,7 +31,7 @@ public class SelectCharacter : MonoBehaviour
         squirrel2 = GameObject.Find("Player Characters/Square for Squirrel 2");
         squirrel3 = GameObject.Find("Player Characters/Triangle for Squirrel 3");
 
-        directionArrow = GameObject.Find("Direction Arrow");
+        directionArrow = GameObject.Find("Player Characters/Direction Arrow"); // changed
 
         apple = GameObject.Find("Apple");
 
