@@ -36,7 +36,7 @@ public class SelectCharacter : MonoBehaviour
         squirrel2 = GameObject.Find("Player Characters/Square for Squirrel 2");
         squirrel3 = GameObject.Find("Player Characters/Triangle for Squirrel 3");
 
-        directionArrow = GameObject.Find("Player Characters/Direction Arrow"); // changed
+        directionArrow = GameObject.Find("Player Characters/Direction Arrow");
 
         apple = GameObject.Find("Apple");
 
