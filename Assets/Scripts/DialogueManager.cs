@@ -52,6 +52,8 @@ public class DialogueManager : MonoBehaviour
             textEffectScript.StartTypingDialogue();
 
             dialogueIndex++;
+
+            SFXScript.instance.StartTypingSFX(SFXScript.instance.typingSound1);
         }
         else { Debug.LogWarning("NO MORE DIALOGUE AVAILABLE"); }
 
