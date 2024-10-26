@@ -38,7 +38,7 @@ public class DialogueManager : MonoBehaviour
         instance = this;
     }
 
-    public void startDialogue()
+    public void startDialogue() // launch the dialogue in a specifique order. the dialogue panel will open, and letter will apears 
     {
         Debug.Log("startdialogue");
         if (dialogue.characters.Count > dialogueIndex)

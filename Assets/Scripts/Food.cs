@@ -56,7 +56,7 @@ public class Food : MonoBehaviour
         if (showKeyForStore && Input.GetKeyDown(KeyCode.P) && SelectCharacter.directionArrow.activeInHierarchy)
         {
             GoldScript.instance.AddRemouveGold(10); // add gold 
-            DialogueManager.instance.startDialogue();
+            DialogueManager.instance.startDialogue(); // launch a dialogue after the delivery 
 
             Destroy(gameObject); // Destroy the food
 

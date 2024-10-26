@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 public class TextEffectScript : MonoBehaviour
 {
-    public float typingSpeed;
+    public float typingSpeed; 
     public string dialogueText;
     public TextMeshProUGUI _TextMeshProUGUI;
     private string currentText = "";
@@ -28,17 +28,17 @@ public class TextEffectScript : MonoBehaviour
         for (int i = 0; i <= dialogueText.Length; i++)
         {
             currentText = dialogueText.Substring(0, i);
-            _TextMeshProUGUI.text = currentText;
-            yield return new WaitForSeconds(typingSpeed);
+            _TextMeshProUGUI.text = currentText; // make the letter write on the text 
+            yield return new WaitForSeconds(typingSpeed); // time between 2 letter 
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            StartCoroutine(TextGenerator());
-        }
+        //if (Input.GetKeyDown(KeyCode.N)) // is here for test + debug 
+        //{
+        //    StartCoroutine(TextGenerator());
+        //}
     }
 }

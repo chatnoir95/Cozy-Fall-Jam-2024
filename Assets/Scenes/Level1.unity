@@ -640,7 +640,42 @@ MonoBehaviour:
   characterNameText: {fileID: 219734148}
   dialogue:
     characters:
-    - characterName: Baker
+    - characterName: Squirel mum
+      dialogue: 'Et dolorem repellat non omnis itaque 33 neque debitis vel amet nemo
+        ut dicta laborum non soluta dolores? Sit aperiam odit vel praesentium dolore
+        eos voluptas reiciendis. Sit praesentium quis et dolorem numquam ab perferendis
+        provident et maiores consectetur non fuga sint. Et velit molestiae ad optio
+        nisi rem soluta ipsam quo libero voluptatibus et cumque itaque eos aliquam
+        voluptatum sit omnis voluptatum! '
+    - characterName: Baker Cow
+      dialogue: 'Et dolorem repellat non omnis itaque 33 neque debitis vel amet nemo
+        ut dicta laborum non soluta dolores? Sit aperiam odit vel praesentium dolore
+        eos voluptas reiciendis. Sit praesentium quis et dolorem numquam ab perferendis
+        provident et maiores consectetur non fuga sint. Et velit molestiae ad optio
+        nisi rem soluta ipsam quo libero voluptatibus et cumque itaque eos aliquam
+        voluptatum sit omnis voluptatum! '
+    - characterName: Farm Dog
+      dialogue: 'Et dolorem repellat non omnis itaque 33 neque debitis vel amet nemo
+        ut dicta laborum non soluta dolores? Sit aperiam odit vel praesentium dolore
+        eos voluptas reiciendis. Sit praesentium quis et dolorem numquam ab perferendis
+        provident et maiores consectetur non fuga sint. Et velit molestiae ad optio
+        nisi rem soluta ipsam quo libero voluptatibus et cumque itaque eos aliquam
+        voluptatum sit omnis voluptatum! '
+    - characterName: Lazy Racoon
+      dialogue: 'Et dolorem repellat non omnis itaque 33 neque debitis vel amet nemo
+        ut dicta laborum non soluta dolores? Sit aperiam odit vel praesentium dolore
+        eos voluptas reiciendis. Sit praesentium quis et dolorem numquam ab perferendis
+        provident et maiores consectetur non fuga sint. Et velit molestiae ad optio
+        nisi rem soluta ipsam quo libero voluptatibus et cumque itaque eos aliquam
+        voluptatum sit omnis voluptatum! '
+    - characterName: chef bear
+      dialogue: 'Et dolorem repellat non omnis itaque 33 neque debitis vel amet nemo
+        ut dicta laborum non soluta dolores? Sit aperiam odit vel praesentium dolore
+        eos voluptas reiciendis. Sit praesentium quis et dolorem numquam ab perferendis
+        provident et maiores consectetur non fuga sint. Et velit molestiae ad optio
+        nisi rem soluta ipsam quo libero voluptatibus et cumque itaque eos aliquam
+        voluptatum sit omnis voluptatum! '
+    - characterName: Cat Mum
       dialogue: 'Et dolorem repellat non omnis itaque 33 neque debitis vel amet nemo
         ut dicta laborum non soluta dolores? Sit aperiam odit vel praesentium dolore
         eos voluptas reiciendis. Sit praesentium quis et dolorem numquam ab perferendis
