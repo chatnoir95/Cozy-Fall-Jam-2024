@@ -9,12 +9,14 @@ public class SelectCharacter : MonoBehaviour
     private Canvas characterSelectorCanvas;
     private Canvas level1Canvas;
 
+    public static GameObject playerCharacters;
     private GameObject squirrel1, squirrel2, squirrel3;
     public static GameObject directionArrow;
 
     private GameObject store;
 
     private GameObject apple;
+    public static GameObject bread1;
 
     private bool isGamePaused;
 
@@ -31,14 +33,17 @@ public class SelectCharacter : MonoBehaviour
         characterSelectorCanvas = GameObject.Find("Character Select Canvas").GetComponent<Canvas>();
         level1Canvas = GameObject.Find("Level 1 Canvas").GetComponent<Canvas>();
 
+        playerCharacters = GameObject.Find("Player Characters");
+
         // These squirrels are just prototype objects, we don't have squirrel sprites just yet
-        squirrel1 = GameObject.Find("Player Characters/Circle for Squirrel 1");
+        squirrel1 = GameObject.Find("Player Characters/Squirrel 1");
         squirrel2 = GameObject.Find("Player Characters/Square for Squirrel 2");
         squirrel3 = GameObject.Find("Player Characters/Triangle for Squirrel 3");
 
         directionArrow = GameObject.Find("Player Characters/Direction Arrow");
 
         apple = GameObject.Find("Apple");
+        bread1 = GameObject.Find("Cozy Jam 2024 Bread");
 
         store = GameObject.Find("Store");
 
@@ -51,10 +56,13 @@ public class SelectCharacter : MonoBehaviour
         squirrel2.SetActive(false);
         squirrel3.SetActive(false);
 
+        playerCharacters.SetActive(false);
+
         directionArrow.SetActive(false);
         store.SetActive(false);
 
         apple.SetActive(false);
+        bread1.SetActive(false);
 
         // Show the character selector canvas but hide level 1 canvas
         characterSelectorCanvas.gameObject.SetActive(true);
@@ -140,6 +148,8 @@ public class SelectCharacter : MonoBehaviour
         // Hide the character selector canvas
         characterSelectorCanvas.gameObject.SetActive(false);
 
+        playerCharacters.SetActive(true);
+
         // Show the 1st squirrel in gameplay when player presses squirrel 1 button (hide others just in case)
         squirrel1.SetActive(true);
         squirrel2.SetActive(false);
@@ -153,6 +163,11 @@ public class SelectCharacter : MonoBehaviour
         if (!apple.IsDestroyed())
         {
             apple.SetActive(true);
+        }
+
+        if (!bread1.IsDestroyed())
+        {
+            bread1.SetActive(true);
         }
 
         store.SetActive(true); // delivery location will spawn at a random location after picking item
@@ -171,6 +186,8 @@ public class SelectCharacter : MonoBehaviour
         // Hide the character selector canvas
         characterSelectorCanvas.gameObject.SetActive(false);
 
+        playerCharacters.SetActive(true);
+
         // Show the 2nd squirrel in gameplay when player presses squirrel 2 button (hide others just in case)
         squirrel1.SetActive(false);
         squirrel2.SetActive(true);
@@ -184,6 +201,11 @@ public class SelectCharacter : MonoBehaviour
         if (!apple.IsDestroyed())
         {
             apple.SetActive(true);
+        }
+
+        if (!bread1.IsDestroyed())
+        {
+            bread1.SetActive(true);
         }
 
         store.SetActive(true);
@@ -202,6 +224,8 @@ public class SelectCharacter : MonoBehaviour
         // Hide the character selector canvas
         characterSelectorCanvas.gameObject.SetActive(false);
 
+        playerCharacters.SetActive(true);
+
         // Show the 3rd squirrel in gameplay when player presses squirrel 3 button (hide others just in case)
         squirrel1.SetActive(false);
         squirrel2.SetActive(false);
@@ -215,6 +239,11 @@ public class SelectCharacter : MonoBehaviour
         if (!apple.IsDestroyed())
         {
             apple.SetActive(true);
+        }
+
+        if (!bread1.IsDestroyed())
+        {
+            bread1.SetActive(true);
         }
 
         store.SetActive(true);
@@ -233,6 +262,8 @@ public class SelectCharacter : MonoBehaviour
         // Show the character selector canvas
         characterSelectorCanvas.gameObject.SetActive(true);
 
+        playerCharacters.SetActive(false);
+
         // Hide all the squirrels
         squirrel1.SetActive(false);
         squirrel2.SetActive(false);
@@ -246,6 +277,11 @@ public class SelectCharacter : MonoBehaviour
         if (!apple.IsDestroyed())
         {
             apple.SetActive(false);
+        }
+
+        if (!bread1.IsDestroyed())
+        {
+            bread1.SetActive(false);
         }
 
         store.SetActive(false);
