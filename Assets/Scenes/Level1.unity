@@ -614,8 +614,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95268990}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/Scenes/Level.unity
 =======
+=======
+>>>>>>> parent of 833db81 (Included sounds after delivering food)
 --- !u!1 &129458082
 GameObject:
   m_ObjectHideFlags: 0
