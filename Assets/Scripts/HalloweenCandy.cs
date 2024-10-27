@@ -13,6 +13,8 @@ public class HalloweenCandy : MonoBehaviour
     private bool showKeyForHalloweenCandy;
     private bool showSuperMarketKey;
 
+    public GameObject nextItemTodelivery;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -91,6 +93,8 @@ public class HalloweenCandy : MonoBehaviour
             superMarketKey.SetActive(false); // Hide the key for delivering food to store
 
             Pumpkin.showDirectionArrow = false; // Set show direction arrow false to hide it
+
+            nextItemTodelivery.SetActive(true);
 
             SelectCharacter.squirrel1Sprite.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel empty cart");
             SelectCharacter.squirrel2Sprite.sprite = Resources.Load<Sprite>("Sprites/Characters/GSquirrel Empty");

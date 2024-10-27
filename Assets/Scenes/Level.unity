@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.5660378, g: 0.3326044, b: 0.10946956, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -692,7 +692,7 @@ Transform:
   m_GameObject: {fileID: 99996986}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.2, y: -10.8, z: 0}
+  m_LocalPosition: {x: -19.2, y: -10.8, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1060,8 +1060,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278693858
+  m_fontColor: {r: 0.8867924, g: 0.68667907, b: 0.0292809, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1208,59 +1208,57 @@ MonoBehaviour:
   dialogue:
     characters:
     - characterName: Squirel mum
-      dialogue: 'Et dolorem repellat non omnis itaque 33 neque debitis vel amet nemo
-        ut dicta laborum non soluta dolores? Sit aperiam odit vel praesentium dolore
-        eos voluptas reiciendis. Sit praesentium quis et dolorem numquam ab perferendis
-        provident et maiores consectetur non fuga sint. Et velit molestiae ad optio
-        nisi rem soluta ipsam quo libero voluptatibus et cumque itaque eos aliquam
-        voluptatum sit omnis voluptatum! '
+      dialogue: "Rise and shine, peanut! I know it\u2019s getting windy this autumn
+        season but I\u2019m sure you\u2019ll do great at your new job as a delivery
+        worker. All you have to do is deliver and assist the people in our town,
+        it might be a bit difficult for you out there with you getting yourself and
+        your items lost, so don\u2019t go wandering around unfamiliar places, okay?
+        Consider this as practice! For your first task, would you please get this
+        pumpkin to the bakery? Good luck, peanut!"
       characterVoice: {fileID: 8300000, guid: 8c3f8b1f1f50d0b42b9155429f48822b, type: 3}
       NPCSprite: {fileID: 21300000, guid: 22661b8666af0c4418da791f38ac0b64, type: 3}
     - characterName: Baker Cow
-      dialogue: 'Et dolorem repellat non omnis itaque 33 neque debitis vel amet nemo
-        ut dicta laborum non soluta dolores? Sit aperiam odit vel praesentium dolore
-        eos voluptas reiciendis. Sit praesentium quis et dolorem numquam ab perferendis
-        provident et maiores consectetur non fuga sint. Et velit molestiae ad optio
-        nisi rem soluta ipsam quo libero voluptatibus et cumque itaque eos aliquam
-        voluptatum sit omnis voluptatum! '
+      dialogue: "Oh, wow! Thank you, darling! I\u2019ve been waiting to try this
+        for my new recipe. Say, I don\u2019t want to leave the bakery unsupervised..
+        So, can I trust you to deliver this loaf of bread to the farm? The farmer
+        will need them if he needs to get his energy up. Thank you, darling! You\u2019re
+        a sweet one!\r\n"
       characterVoice: {fileID: 8300000, guid: 34b60e377a11168428dda99227e0e08a, type: 3}
       NPCSprite: {fileID: 21300000, guid: 6736ed0e820b254439e3bcde07bcaf10, type: 3}
     - characterName: Farm Dog
-      dialogue: 'Et dolorem repellat non omnis itaque 33 neque debitis vel amet nemo
-        ut dicta laborum non soluta dolores? Sit aperiam odit vel praesentium dolore
-        eos voluptas reiciendis. Sit praesentium quis et dolorem numquam ab perferendis
-        provident et maiores consectetur non fuga sint. Et velit molestiae ad optio
-        nisi rem soluta ipsam quo libero voluptatibus et cumque itaque eos aliquam
-        voluptatum sit omnis voluptatum! '
+      dialogue: "Well, I\u2019ll be! Thanks, young\u2019un.Hold on there, young\u2019un.
+        You workin\u2019 for the delivery service? Would ya mind sendin\u2019 these
+        Candied Apples to the Supermarket? All fresh and sweet, ready to be delivered!
+        Good luck out there!"
       characterVoice: {fileID: 8300000, guid: 9f41535c55666b04fb5fb44727efd72c, type: 3}
-      NPCSprite: {fileID: 21300000, guid: 6fc5bf44dafc176419f44209c612c99b, type: 3}
+      NPCSprite: {fileID: 21300000, guid: 58a8991671053424d8b405d6e8400fdc, type: 3}
     - characterName: Lazy Racoon
-      dialogue: 'Et dolorem repellat non omnis itaque 33 neque debitis vel amet nemo
-        ut dicta laborum non soluta dolores? Sit aperiam odit vel praesentium dolore
-        eos voluptas reiciendis. Sit praesentium quis et dolorem numquam ab perferendis
-        provident et maiores consectetur non fuga sint. Et velit molestiae ad optio
-        nisi rem soluta ipsam quo libero voluptatibus et cumque itaque eos aliquam
-        voluptatum sit omnis voluptatum! '
+      dialogue: "Hey. Just in time.\nSooooo\u2026 buddy.. If you\u2019re not busy...\nCan
+        you, like, give these Halloween candy to the restaurant around the block?
+        The chef needs \u2018em for the kiddos, or maybe as a snack for himself.
+        I don\u2019t want to trek all the way there then run back here.\nI\u2019ll
+        even give you a discount coupon. Just don\u2019t tell my boss.\nDeal?\n"
       characterVoice: {fileID: 8300000, guid: 89d1191012eb8bb4fa30705121555d75, type: 3}
       NPCSprite: {fileID: 21300000, guid: 799585864fed2b74f9c161b87a12d885, type: 3}
     - characterName: chef bear
-      dialogue: 'Et dolorem repellat non omnis itaque 33 neque debitis vel amet nemo
-        ut dicta laborum non soluta dolores? Sit aperiam odit vel praesentium dolore
-        eos voluptas reiciendis. Sit praesentium quis et dolorem numquam ab perferendis
-        provident et maiores consectetur non fuga sint. Et velit molestiae ad optio
-        nisi rem soluta ipsam quo libero voluptatibus et cumque itaque eos aliquam
-        voluptatum sit omnis voluptatum! '
+      dialogue: "Can I ask you a favor? A regular customer named Mrs. Molly needs
+        this pumpkin pie delivered as soon as possible. It took a long while to prepare,
+        and it\u2019s running a little late for delivery.\r\nShouldn\u2019t be too
+        hard to find her. I\u2019m sure her home\u2019s all decorated for her kids\u2019
+        birthday party by now.\nYou\u2019ve done me a great service, kiddo. Thank
+        you. "
       characterVoice: {fileID: 8300000, guid: 27ef09549f6e0aa45a96259605fd2fee, type: 3}
       NPCSprite: {fileID: 21300000, guid: dfadd8c1ff98759428e2bfa8c2e509c5, type: 3}
     - characterName: Cat Mum
-      dialogue: 'Et dolorem repellat non omnis itaque 33 neque debitis vel amet nemo
-        ut dicta laborum non soluta dolores? Sit aperiam odit vel praesentium dolore
-        eos voluptas reiciendis. Sit praesentium quis et dolorem numquam ab perferendis
-        provident et maiores consectetur non fuga sint. Et velit molestiae ad optio
-        nisi rem soluta ipsam quo libero voluptatibus et cumque itaque eos aliquam
-        voluptatum sit omnis voluptatum! '
+      dialogue: "Oh goodness, thank you so, so much!\nThe kids here love pies more
+        than cakes, and they were beginning to wonder where the pumpkin pie is\nI
+        had to tell them that it\u2019s playing a game of hide and seek, so I managed
+        to keep them entertained, haha!\nBut anyway, I\u2019ll make sure to send
+        the chef my regards. Thank you again, little one!\nOh? How did it go, Peanut?
+        Did it go well? How delightful! Congratulations!\nSee? It\u2019s not scary!
+        You\u2019re a natural, now why don\u2019t you take a break and we can eat!\n"
       characterVoice: {fileID: 8300000, guid: dc6a3cd4821809740a4ce10c2a5190fc, type: 3}
-      NPCSprite: {fileID: 1332082422, guid: bd36b9e87ee788f4fb809b7d473ddae3, type: 3}
+      NPCSprite: {fileID: 21300000, guid: 9a881dc6458609741963e1d6ae718fb3, type: 3}
 --- !u!1 &301033271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,7 +1817,7 @@ Transform:
   m_GameObject: {fileID: 380531092}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.2, y: 10.8, z: 0}
+  m_LocalPosition: {x: 19.2, y: 10.8, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2899,6 +2897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17adc69657e0c9342b42d77e8ad81a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextItemTodelivery: {fileID: 547413219}
 --- !u!1 &688842394
 GameObject:
   m_ObjectHideFlags: 0
@@ -3008,7 +3007,7 @@ Transform:
   m_GameObject: {fileID: 701315915}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3092,7 +3091,7 @@ Transform:
   m_GameObject: {fileID: 709149298}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.2, y: 0, z: 0}
+  m_LocalPosition: {x: 19.2, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3607,8 +3606,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4280953386
+  m_fontColor: {r: 0.16470589, g: 0.16470589, b: 0.16470589, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3753,7 +3752,7 @@ Transform:
   m_GameObject: {fileID: 949541832}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.2, y: 0, z: 0}
+  m_LocalPosition: {x: -19.2, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4941,7 +4940,7 @@ Transform:
   m_GameObject: {fileID: 1375358471}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -10.8, z: 0}
+  m_LocalPosition: {x: 0, y: -10.8, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5300,7 +5299,7 @@ Transform:
   m_GameObject: {fileID: 1566520102}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10.8, z: 0}
+  m_LocalPosition: {x: 0, y: 10.8, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5656,7 +5655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
+  m_Color: {r: 0.7254902, g: 0.48235297, b: 0.25882354, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6821,7 +6820,7 @@ Transform:
   m_GameObject: {fileID: 1994346192}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.2, y: 10.8, z: 0}
+  m_LocalPosition: {x: -19.2, y: 10.8, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6905,7 +6904,7 @@ Transform:
   m_GameObject: {fileID: 2047678585}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.2, y: -10.8, z: 0}
+  m_LocalPosition: {x: 19.2, y: -10.8, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
