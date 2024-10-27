@@ -615,8 +615,11 @@ CanvasRenderer:
   m_GameObject: {fileID: 95268990}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/Scenes/Level.unity
 =======
+=======
+>>>>>>> parent of 833db81 (Included sounds after delivering food)
 =======
 >>>>>>> parent of 833db81 (Included sounds after delivering food)
 --- !u!1 &129458082
