@@ -15,8 +15,7 @@ public class SelectCharacter : MonoBehaviour
 
     private GameObject store;
 
-    private GameObject pumpkin;
-    public static GameObject bread1;
+    private GameObject pumpkin, pumpkinPie, bread1, candyApple;
 
     private bool isGamePaused;
 
@@ -44,6 +43,8 @@ public class SelectCharacter : MonoBehaviour
 
         pumpkin = GameObject.Find("Cozy Jam 2024 Pumpkin");
         bread1 = GameObject.Find("Cozy Jam 2024 Bread");
+        candyApple = GameObject.Find("Cozy Jam 2024 Candied Apple");
+        pumpkinPie = GameObject.Find("Cozy Jam 2024 Pumpkin Pie");
 
         store = GameObject.Find("Store");
 
@@ -63,6 +64,8 @@ public class SelectCharacter : MonoBehaviour
 
         pumpkin.SetActive(false);
         bread1.SetActive(false);
+        candyApple.SetActive(false);
+        pumpkinPie.SetActive(false);
 
         // Show the character selector canvas but hide level 1 canvas
         characterSelectorCanvas.gameObject.SetActive(true);
@@ -170,6 +173,16 @@ public class SelectCharacter : MonoBehaviour
             bread1.SetActive(true);
         }
 
+        if (!candyApple.IsDestroyed())
+        {
+            candyApple.SetActive(true);
+        }
+
+        if (!pumpkinPie.IsDestroyed())
+        {
+            pumpkinPie.SetActive(true);
+        }
+
         store.SetActive(true); // delivery location will spawn at a random location after picking item
 
         // Show the level 1 canvas
@@ -206,6 +219,16 @@ public class SelectCharacter : MonoBehaviour
         if (!bread1.IsDestroyed())
         {
             bread1.SetActive(true);
+        }
+
+        if (!candyApple.IsDestroyed())
+        {
+            candyApple.SetActive(true);
+        }
+
+        if (!pumpkinPie.IsDestroyed())
+        {
+            pumpkinPie.SetActive(true);
         }
 
         store.SetActive(true);
@@ -246,6 +269,16 @@ public class SelectCharacter : MonoBehaviour
             bread1.SetActive(true);
         }
 
+        if (!candyApple.IsDestroyed())
+        {
+            candyApple.SetActive(true);
+        }
+
+        if (!pumpkinPie.IsDestroyed())
+        {
+            pumpkinPie.SetActive(true);
+        }
+
         store.SetActive(true);
 
         // Show the level 1 canvas
@@ -282,6 +315,16 @@ public class SelectCharacter : MonoBehaviour
         if (!bread1.IsDestroyed())
         {
             bread1.SetActive(false);
+        }
+
+        if (!candyApple.IsDestroyed())
+        {
+            candyApple.SetActive(false);
+        }
+
+        if (!pumpkinPie.IsDestroyed())
+        {
+            pumpkinPie.SetActive(false);
         }
 
         store.SetActive(false);

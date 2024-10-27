@@ -57,7 +57,7 @@ public class Pumpkin : MonoBehaviour
 
             showDirectionArrow = true; // Show the direction arrow for delivery area
 
-            Player.squirrel1.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel Pumpkin Cart");
+            Player.squirrel1Sprite.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel Pumpkin Cart");
         }
 
         if (showPumpkinKeyForStore && Input.GetKeyDown(KeyCode.P) && SelectCharacter.directionArrow.activeInHierarchy)
@@ -72,7 +72,7 @@ public class Pumpkin : MonoBehaviour
 
             showDirectionArrow = false; // Set show direction arrow false to hide it
 
-            Player.squirrel1.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel empty cart");
+            Player.squirrel1Sprite.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel empty cart");
         }
 
         // Show or hide the keys for food on screen

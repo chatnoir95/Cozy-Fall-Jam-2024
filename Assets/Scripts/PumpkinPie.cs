@@ -14,7 +14,7 @@ public class PumpkinPie : MonoBehaviour
     void Start()
     {
         pPumpkinPieKey = GameObject.Find("Cozy Jam 2024 Pumpkin Pie/P key pumpkin pie");
-        pPumpkinPieKeyStore = GameObject.Find("Store/P key store 4");
+        pPumpkinPieKeyStore = GameObject.Find("Store/P key store 2");
 
         pPumpkinPieKey.SetActive(false);
         pPumpkinPieKeyStore.SetActive(false);
@@ -52,7 +52,7 @@ public class PumpkinPie : MonoBehaviour
 
             Pumpkin.showDirectionArrow = true; // Show the direction arrow for delivery area
 
-            Player.squirrel1.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel Pumpkin Pie Cart");
+            Player.squirrel1Sprite.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel Pumpkin Pie Cart");
         }
 
         if (showPumpkinPieKeyForStore && Input.GetKeyDown(KeyCode.P) && SelectCharacter.directionArrow.activeInHierarchy)
@@ -67,7 +67,7 @@ public class PumpkinPie : MonoBehaviour
 
             Pumpkin.showDirectionArrow = false; // Set show direction arrow false to hide it
 
-            Player.squirrel1.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel empty cart");
+            Player.squirrel1Sprite.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel empty cart");
         }
 
         // Show or hide the keys for food on screen

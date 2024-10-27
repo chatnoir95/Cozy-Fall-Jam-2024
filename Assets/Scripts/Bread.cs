@@ -15,8 +15,8 @@ public class Bread : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pKeyBread1 = GameObject.Find("Cozy Jam 2024 Bread/P key bread 1");
-        pBreadKeyStore = GameObject.Find("Store/P key store 2");
+        pKeyBread1 = GameObject.Find("Cozy Jam 2024 Bread/B key bread 1");
+        pBreadKeyStore = GameObject.Find("Store/B key store");
 
         bread1Sprite = GetComponent<SpriteRenderer>();
 
@@ -40,8 +40,8 @@ public class Bread : MonoBehaviour
             SelectCharacter.directionArrow.SetActive(false);
         }
 
-        // If the player collided with the food and pressed the P key
-        if (showKeyForBread1 && Input.GetKeyDown(KeyCode.P))
+        // If the player collided with the bread and pressed the B key
+        if (showKeyForBread1 && Input.GetKeyDown(KeyCode.B))
         {
             // Place the food object on the player
             gameObject.transform.SetParent(SelectCharacter.playerCharacters.transform, true);
@@ -53,10 +53,10 @@ public class Bread : MonoBehaviour
             showKeyForBread1 = false;
             Pumpkin.showDirectionArrow = true; // Show the direction arrow for delivery area
 
-            Player.squirrel1.sprite = Resources.Load<Sprite>("Sprites/Characters/Cozy Jam 2024 Bread Cart");
+            Player.squirrel1Sprite.sprite = Resources.Load<Sprite>("Sprites/Characters/Cozy Jam 2024 Bread Cart");
         }
 
-        if (showBreadKeyForStore && Input.GetKeyDown(KeyCode.P) && SelectCharacter.directionArrow.activeInHierarchy)
+        if (showBreadKeyForStore && Input.GetKeyDown(KeyCode.B) && SelectCharacter.directionArrow.activeInHierarchy)
         {
             GoldScript.instance.AddRemouveGold(10); // add gold 
             DialogueManager.instance.startDialogue(); // launch a dialogue after the delivery 
@@ -68,7 +68,7 @@ public class Bread : MonoBehaviour
 
             Pumpkin.showDirectionArrow = false; // Set show direction arrow false to hide it
 
-            Player.squirrel1.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel empty cart");
+            Player.squirrel1Sprite.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel empty cart");
         }
 
         // Show or hide the keys for food on screen

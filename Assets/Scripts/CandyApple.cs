@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class CandyApple : MonoBehaviour
 {
-    private GameObject pKeyCandyApple;
-    private GameObject pCandyAppleKeyStore;
+    private GameObject cKeyCandyApple;
+    private GameObject cCandyAppleKeyForStore;
 
     private bool showKeyForCandyApple;
     private bool showCandyAppleKeyForStore;
@@ -14,11 +14,13 @@ public class CandyApple : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pKeyCandyApple = GameObject.Find("Cozy Jam 2024 Candied Apple/P key candy apple");
-        pCandyAppleKeyStore = GameObject.Find("Store/P key store 3");
+        cKeyCandyApple = GameObject.Find("Cozy Jam 2024 Candied Apple/C key candy apple");
 
-        pKeyCandyApple.SetActive(false);
-        pCandyAppleKeyStore.SetActive(false);
+        cCandyAppleKeyForStore = GameObject.Find("Store/C key store");
+
+        cKeyCandyApple.SetActive(false);
+
+        cCandyAppleKeyForStore.SetActive(false);
 
         showKeyForCandyApple = false;
     }
@@ -37,8 +39,8 @@ public class CandyApple : MonoBehaviour
             SelectCharacter.directionArrow.SetActive(false);
         }
 
-        // If the player collided with the food and pressed the P key
-        if (showKeyForCandyApple && Input.GetKeyDown(KeyCode.P))
+        // If the player collided with the food and pressed the C key
+        if (showKeyForCandyApple && Input.GetKeyDown(KeyCode.C))
         {
             // Place the food object on the player
             gameObject.transform.SetParent(SelectCharacter.playerCharacters.transform, true);
@@ -51,10 +53,10 @@ public class CandyApple : MonoBehaviour
             showKeyForCandyApple = false;
             Pumpkin.showDirectionArrow = true; // Show the direction arrow for delivery area
 
-            Player.squirrel1.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel Candy Apple Cart");
+            Player.squirrel1Sprite.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel Candy Apple Cart");
         }
 
-        if (showCandyAppleKeyForStore && Input.GetKeyDown(KeyCode.P) && SelectCharacter.directionArrow.activeInHierarchy)
+        if (showCandyAppleKeyForStore && Input.GetKeyDown(KeyCode.C) && SelectCharacter.directionArrow.activeInHierarchy)
         {
             GoldScript.instance.AddRemouveGold(10); // add gold 
             DialogueManager.instance.startDialogue(); // launch a dialogue after the delivery 
@@ -62,33 +64,33 @@ public class CandyApple : MonoBehaviour
             Destroy(gameObject); // Destroy the food
 
             SelectCharacter.directionArrow.SetActive(false); // Hide the direction arrow after completing delivery
-            pCandyAppleKeyStore.SetActive(false); // Hide the key for delivering food to store
+            cCandyAppleKeyForStore.SetActive(false); // Hide the key for delivering food to store
 
             Pumpkin.showDirectionArrow = false; // Set show direction arrow false to hide it
 
-            Player.squirrel1.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel empty cart");
+            Player.squirrel1Sprite.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel empty cart");
         }
 
         // Show or hide the keys for food on screen
         if (showKeyForCandyApple)
         {
-            pKeyCandyApple.SetActive(true);
+            cKeyCandyApple.SetActive(true);
         }
 
         else if (!showKeyForCandyApple)
         {
-            pKeyCandyApple.SetActive(false);
+            cKeyCandyApple.SetActive(false);
         }
 
         // Show or hide the keys for store on screen
         if (showCandyAppleKeyForStore)
         {
-            pCandyAppleKeyStore.SetActive(true);
+            cCandyAppleKeyForStore.SetActive(true);
         }
 
         else if (!showCandyAppleKeyForStore)
         {
-            pCandyAppleKeyStore.SetActive(false);
+            cCandyAppleKeyForStore.SetActive(false);
         }
     }
 
