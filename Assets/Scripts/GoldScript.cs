@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.VFX;
 
 public class GoldScript : MonoBehaviour
 {
@@ -38,12 +37,6 @@ public class GoldScript : MonoBehaviour
         if (_goldValue < 0)
         {
             Debug.LogWarning("careful player buy something without enough money");
-        }
-
-        else if (_goldValue > 0)
-        {
-            SFXScript.moneySound.clip = Resources.Load<AudioClip>("SFX/GGA_MoneyCollect");
-            SFXScript.moneySound.Play();
         }
         UpdateGoldUI();
     }

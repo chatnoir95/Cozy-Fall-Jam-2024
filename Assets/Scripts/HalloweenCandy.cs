@@ -77,9 +77,6 @@ public class HalloweenCandy : MonoBehaviour
             Bread.canCollectBread = true;
             CandyApple.canCollectCandyApple = true;
 
-            SFXScript.eatingSounds.clip = Resources.Load<AudioClip>("SFX/GGA_HardCandyBite");
-            SFXScript.eatingSounds.Play();
-
             GoldScript.instance.AddRemouveGold(10); // add gold 
             DialogueManager.instance.startDialogue(); // launch a dialogue after the delivery 
 

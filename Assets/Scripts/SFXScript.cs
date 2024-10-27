@@ -10,8 +10,6 @@ public class SFXScript : MonoBehaviour
 
     public AudioClip typingSound1,motorSound;
 
-    public static AudioSource moneySound, eatingSounds;
-
     [SerializeField] private Rigidbody2D playerRb;
     // Start is called before the first frame update
 
@@ -27,11 +25,6 @@ public class SFXScript : MonoBehaviour
     {
         //  SFXSource = GetComponent<AudioSource>();
         typingSFXSource = GameObject.Find("SFXManager/TypingAudio").GetComponent<AudioSource>();
-
-        moneySound = GameObject.Find("SFXManager/Money sound").GetComponent<AudioSource>();
-        moneySound.volume = 0.3f;
-
-        eatingSounds = GameObject.Find("SFXManager/Eating sounds").GetComponent<AudioSource>();
     }
 
     public void LaunchSoundSFX(AudioClip audio)
