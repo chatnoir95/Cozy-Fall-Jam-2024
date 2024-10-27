@@ -44,6 +44,8 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("startdialogue");
         if (dialogue.characters.Count > dialogueIndex)
         {
+            Player.canPlayerMove = false;
+
             Debug.Log(dialogue.characters[dialogueIndex].characterName);
             //DialogueCharacter character = dialogue.characters[dialogueIndex];
 
@@ -62,6 +64,10 @@ public class DialogueManager : MonoBehaviour
 
     public void CloseDialoguePanel()
     {
+        SFXScript.typingSFXSource.Stop();
+
+        Player.canPlayerMove = true;
+
         _dialoguePanel.SetActive(false); 
     }
 

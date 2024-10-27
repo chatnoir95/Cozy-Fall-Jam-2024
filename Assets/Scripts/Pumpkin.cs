@@ -3,29 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class Food : MonoBehaviour
+public class Pumpkin : MonoBehaviour
 {
-    private GameObject pKeyApple;
-    private GameObject pKeyStore;
+    private GameObject pPumpkinKey;
+    private GameObject pPumpkinKeyStore;
 
     public static bool showDirectionArrow;
 
-    private bool showKeyForFood;
-    private bool showKeyForStore;
+    private bool showKeyForPumpkin;
+    private bool showPumpkinKeyForStore;
 
     // Start is called before the first frame update
     void Start()
     {
         showDirectionArrow = false;
 
-        pKeyApple = GameObject.Find("Apple/P key apple");
-        pKeyStore = GameObject.Find("Store/P key store");
+        pPumpkinKey = GameObject.Find("Cozy Jam 2024 Pumpkin/P key pumpkin");
+        pPumpkinKeyStore = GameObject.Find("Store/P key store");
 
-        pKeyApple.SetActive(false);
-        pKeyStore.SetActive(false);
+        pPumpkinKey.SetActive(false);
+        pPumpkinKeyStore.SetActive(false);
 
-        showKeyForFood = false;
-        showKeyForStore = false;
+        showKeyForPumpkin = false;
+        showPumpkinKeyForStore = false;
     }
 
     // Update is called once per frame
@@ -43,19 +43,24 @@ public class Food : MonoBehaviour
         }
 
         // If the player collided with the food and pressed the P key
-        if (showKeyForFood && Input.GetKeyDown(KeyCode.P))
+        if (showKeyForPumpkin && Input.GetKeyDown(KeyCode.P))
         {
             // Place the food object on the player
             gameObject.transform.SetParent(SelectCharacter.playerCharacters.transform, true);
 
-            showKeyForFood = false;
+            // Scale the pumpkin to 0 across all axes to hide the pumpkin from the player's view
+            gameObject.transform.localScale = Vector3.zero;
+
+            showKeyForPumpkin = false;
 
             // DeliveryManager.instance.SpawnDeliveryArea(); // spawn the delivery target at a ramdom location 
 
             showDirectionArrow = true; // Show the direction arrow for delivery area
+
+            Player.squirrel1.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel Pumpkin Cart");
         }
 
-        if (showKeyForStore && Input.GetKeyDown(KeyCode.P) && SelectCharacter.directionArrow.activeInHierarchy)
+        if (showPumpkinKeyForStore && Input.GetKeyDown(KeyCode.P) && SelectCharacter.directionArrow.activeInHierarchy)
         {
             GoldScript.instance.AddRemouveGold(10); // add gold 
             DialogueManager.instance.startDialogue(); // launch a dialogue after the delivery 
@@ -63,31 +68,33 @@ public class Food : MonoBehaviour
             Destroy(gameObject); // Destroy the food
 
             SelectCharacter.directionArrow.SetActive(false); // Hide the direction arrow after completing delivery
-            pKeyStore.SetActive(false); // Hide the key for delivering food to store
+            pPumpkinKeyStore.SetActive(false); // Hide the key for delivering food to store
 
             showDirectionArrow = false; // Set show direction arrow false to hide it
+
+            Player.squirrel1.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel empty cart");
         }
 
         // Show or hide the keys for food on screen
-        if (showKeyForFood)
+        if (showKeyForPumpkin)
         {
-            pKeyApple.SetActive(true);
+            pPumpkinKey.SetActive(true);
         }
 
-        else if (!showKeyForFood)
+        else if (!showKeyForPumpkin)
         {
-            pKeyApple.SetActive(false);
+            pPumpkinKey.SetActive(false);
         }
 
         // Show or hide the keys for store on screen
-        if (showKeyForStore)
+        if (showPumpkinKeyForStore)
         {
-            pKeyStore.SetActive(true);
+            pPumpkinKeyStore.SetActive(true);
         }
 
-        else if (!showKeyForStore)
+        else if (!showPumpkinKeyForStore)
         {
-            pKeyStore.SetActive(false);
+            pPumpkinKeyStore.SetActive(false);
         }
     }
 
@@ -95,12 +102,12 @@ public class Food : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            showKeyForFood = true;
+            showKeyForPumpkin = true;
         }
 
         if (collision.gameObject.tag == "Store")
         {
-            showKeyForStore = true;
+            showPumpkinKeyForStore = true;
         }
     }
 
@@ -108,12 +115,12 @@ public class Food : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            showKeyForFood = true;
+            showKeyForPumpkin = true;
         }
 
         if (collision.gameObject.tag == "Store")
         {
-            showKeyForStore = true;
+            showPumpkinKeyForStore = true;
         }
     }
 
@@ -121,12 +128,12 @@ public class Food : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            showKeyForFood = false;
+            showKeyForPumpkin = false;
         }
 
         if (collision.gameObject.tag == "Store")
         {
-            showKeyForStore = false;
+            showPumpkinKeyForStore = false;
         }
     }
 }

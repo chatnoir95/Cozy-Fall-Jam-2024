@@ -1,29 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Bread : MonoBehaviour
+public class CandyApple : MonoBehaviour
 {
-    private GameObject pKeyBread1;
-    private GameObject pBreadKeyStore;
+    private GameObject pKeyCandyApple;
+    private GameObject pCandyAppleKeyStore;
 
-    private bool showKeyForBread1;
-    private bool showBreadKeyForStore;
-
-    private SpriteRenderer bread1Sprite;
+    private bool showKeyForCandyApple;
+    private bool showCandyAppleKeyForStore;
 
     // Start is called before the first frame update
     void Start()
     {
-        pKeyBread1 = GameObject.Find("Cozy Jam 2024 Bread/P key bread 1");
-        pBreadKeyStore = GameObject.Find("Store/P key store 2");
+        pKeyCandyApple = GameObject.Find("Cozy Jam 2024 Candied Apple/P key candy apple");
+        pCandyAppleKeyStore = GameObject.Find("Store/P key store 3");
 
-        bread1Sprite = GetComponent<SpriteRenderer>();
+        pKeyCandyApple.SetActive(false);
+        pCandyAppleKeyStore.SetActive(false);
 
-        pKeyBread1.SetActive(false);
-        pBreadKeyStore.SetActive(false);
-
-        showKeyForBread1 = false;
+        showKeyForCandyApple = false;
     }
 
     // Update is called once per frame
@@ -41,22 +38,23 @@ public class Bread : MonoBehaviour
         }
 
         // If the player collided with the food and pressed the P key
-        if (showKeyForBread1 && Input.GetKeyDown(KeyCode.P))
+        if (showKeyForCandyApple && Input.GetKeyDown(KeyCode.P))
         {
             // Place the food object on the player
             gameObject.transform.SetParent(SelectCharacter.playerCharacters.transform, true);
 
-            // DeliveryManager.instance.SpawnDeliveryArea(); // spawn the delivery target at a ramdom location 
+            // Scale the candy apple to 0 across all axes to hide the candy apple from the player's view
+            gameObject.transform.localScale = Vector3.zero;
 
-            bread1Sprite.sortingOrder = 0;
+            // DeliveryManager.instance.SpawnDeliveryArea(); // spawn the delivery target at a ramdom location
 
-            showKeyForBread1 = false;
+            showKeyForCandyApple = false;
             Pumpkin.showDirectionArrow = true; // Show the direction arrow for delivery area
 
-            Player.squirrel1.sprite = Resources.Load<Sprite>("Sprites/Characters/Cozy Jam 2024 Bread Cart");
+            Player.squirrel1.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel Candy Apple Cart");
         }
 
-        if (showBreadKeyForStore && Input.GetKeyDown(KeyCode.P) && SelectCharacter.directionArrow.activeInHierarchy)
+        if (showCandyAppleKeyForStore && Input.GetKeyDown(KeyCode.P) && SelectCharacter.directionArrow.activeInHierarchy)
         {
             GoldScript.instance.AddRemouveGold(10); // add gold 
             DialogueManager.instance.startDialogue(); // launch a dialogue after the delivery 
@@ -64,7 +62,7 @@ public class Bread : MonoBehaviour
             Destroy(gameObject); // Destroy the food
 
             SelectCharacter.directionArrow.SetActive(false); // Hide the direction arrow after completing delivery
-            pBreadKeyStore.SetActive(false); // Hide the key for delivering food to store
+            pCandyAppleKeyStore.SetActive(false); // Hide the key for delivering food to store
 
             Pumpkin.showDirectionArrow = false; // Set show direction arrow false to hide it
 
@@ -72,25 +70,25 @@ public class Bread : MonoBehaviour
         }
 
         // Show or hide the keys for food on screen
-        if (showKeyForBread1)
+        if (showKeyForCandyApple)
         {
-            pKeyBread1.SetActive(true);
+            pKeyCandyApple.SetActive(true);
         }
 
-        else if (!showKeyForBread1)
+        else if (!showKeyForCandyApple)
         {
-            pKeyBread1.SetActive(false);
+            pKeyCandyApple.SetActive(false);
         }
 
         // Show or hide the keys for store on screen
-        if (showBreadKeyForStore)
+        if (showCandyAppleKeyForStore)
         {
-            pBreadKeyStore.SetActive(true);
+            pCandyAppleKeyStore.SetActive(true);
         }
 
-        else if (!showBreadKeyForStore)
+        else if (!showCandyAppleKeyForStore)
         {
-            pBreadKeyStore.SetActive(false);
+            pCandyAppleKeyStore.SetActive(false);
         }
     }
 
@@ -98,12 +96,12 @@ public class Bread : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            showKeyForBread1 = true;
+            showKeyForCandyApple = true;
         }
 
         if (collision.gameObject.tag == "Store")
         {
-            showBreadKeyForStore = true;
+            showCandyAppleKeyForStore = true;
         }
     }
 
@@ -111,12 +109,12 @@ public class Bread : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            showKeyForBread1 = true;
+            showKeyForCandyApple = true;
         }
 
         if (collision.gameObject.tag == "Store")
         {
-            showBreadKeyForStore = true;
+            showCandyAppleKeyForStore = true;
         }
     }
 
@@ -124,12 +122,12 @@ public class Bread : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            showKeyForBread1 = false;
+            showKeyForCandyApple = false;
         }
 
         if (collision.gameObject.tag == "Store")
         {
-            showBreadKeyForStore = false;
+            showCandyAppleKeyForStore = false;
         }
     }
 }

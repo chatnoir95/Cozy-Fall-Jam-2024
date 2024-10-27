@@ -15,7 +15,7 @@ public class SelectCharacter : MonoBehaviour
 
     private GameObject store;
 
-    private GameObject apple;
+    private GameObject pumpkin;
     public static GameObject bread1;
 
     private bool isGamePaused;
@@ -42,7 +42,7 @@ public class SelectCharacter : MonoBehaviour
 
         directionArrow = GameObject.Find("Player Characters/Direction Arrow");
 
-        apple = GameObject.Find("Apple");
+        pumpkin = GameObject.Find("Cozy Jam 2024 Pumpkin");
         bread1 = GameObject.Find("Cozy Jam 2024 Bread");
 
         store = GameObject.Find("Store");
@@ -61,7 +61,7 @@ public class SelectCharacter : MonoBehaviour
         directionArrow.SetActive(false);
         store.SetActive(false);
 
-        apple.SetActive(false);
+        pumpkin.SetActive(false);
         bread1.SetActive(false);
 
         // Show the character selector canvas but hide level 1 canvas
@@ -155,14 +155,14 @@ public class SelectCharacter : MonoBehaviour
         squirrel2.SetActive(false);
         squirrel3.SetActive(false);
 
-        if (Food.showDirectionArrow)
+        if (Pumpkin.showDirectionArrow)
         {
             directionArrow.SetActive(true);
         }
 
-        if (!apple.IsDestroyed())
+        if (!pumpkin.IsDestroyed())
         {
-            apple.SetActive(true);
+            pumpkin.SetActive(true);
         }
 
         if (!bread1.IsDestroyed())
@@ -193,14 +193,14 @@ public class SelectCharacter : MonoBehaviour
         squirrel2.SetActive(true);
         squirrel3.SetActive(false);
 
-        if (Food.showDirectionArrow)
+        if (Pumpkin.showDirectionArrow)
         {
             directionArrow.SetActive(true);
         }
 
-        if (!apple.IsDestroyed())
+        if (!pumpkin.IsDestroyed())
         {
-            apple.SetActive(true);
+            pumpkin.SetActive(true);
         }
 
         if (!bread1.IsDestroyed())
@@ -231,14 +231,14 @@ public class SelectCharacter : MonoBehaviour
         squirrel2.SetActive(false);
         squirrel3.SetActive(true);
 
-        if (Food.showDirectionArrow)
+        if (Pumpkin.showDirectionArrow)
         {
             directionArrow.SetActive(true);
         }
 
-        if (!apple.IsDestroyed())
+        if (!pumpkin.IsDestroyed())
         {
-            apple.SetActive(true);
+            pumpkin.SetActive(true);
         }
 
         if (!bread1.IsDestroyed())
@@ -269,14 +269,14 @@ public class SelectCharacter : MonoBehaviour
         squirrel2.SetActive(false);
         squirrel3.SetActive(false);
 
-        if (Food.showDirectionArrow)
+        if (Pumpkin.showDirectionArrow)
         {
             directionArrow.SetActive(false);
         }
 
-        if (!apple.IsDestroyed())
+        if (!pumpkin.IsDestroyed())
         {
-            apple.SetActive(false);
+            pumpkin.SetActive(false);
         }
 
         if (!bread1.IsDestroyed())

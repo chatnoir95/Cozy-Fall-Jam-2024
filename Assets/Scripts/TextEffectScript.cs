@@ -31,7 +31,6 @@ public class TextEffectScript : MonoBehaviour
             _TextMeshProUGUI.text = currentText; // make the letter write on the text 
             yield return new WaitForSeconds(typingSpeed); // time between 2 letter 
         }
-        SFXScript.instance.typingSFXSource.Stop();
     }
 
     // Update is called once per frame

@@ -2,28 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bread : MonoBehaviour
+public class PumpkinPie : MonoBehaviour
 {
-    private GameObject pKeyBread1;
-    private GameObject pBreadKeyStore;
+    private GameObject pPumpkinPieKey;
+    private GameObject pPumpkinPieKeyStore;
 
-    private bool showKeyForBread1;
-    private bool showBreadKeyForStore;
-
-    private SpriteRenderer bread1Sprite;
+    private bool showKeyForPumpkinPie;
+    private bool showPumpkinPieKeyForStore;
 
     // Start is called before the first frame update
     void Start()
     {
-        pKeyBread1 = GameObject.Find("Cozy Jam 2024 Bread/P key bread 1");
-        pBreadKeyStore = GameObject.Find("Store/P key store 2");
+        pPumpkinPieKey = GameObject.Find("Cozy Jam 2024 Pumpkin Pie/P key pumpkin pie");
+        pPumpkinPieKeyStore = GameObject.Find("Store/P key store 4");
 
-        bread1Sprite = GetComponent<SpriteRenderer>();
+        pPumpkinPieKey.SetActive(false);
+        pPumpkinPieKeyStore.SetActive(false);
 
-        pKeyBread1.SetActive(false);
-        pBreadKeyStore.SetActive(false);
-
-        showKeyForBread1 = false;
+        showKeyForPumpkinPie = false;
+        showPumpkinPieKeyForStore = false;
     }
 
     // Update is called once per frame
@@ -41,22 +38,24 @@ public class Bread : MonoBehaviour
         }
 
         // If the player collided with the food and pressed the P key
-        if (showKeyForBread1 && Input.GetKeyDown(KeyCode.P))
+        if (showKeyForPumpkinPie && Input.GetKeyDown(KeyCode.P))
         {
             // Place the food object on the player
             gameObject.transform.SetParent(SelectCharacter.playerCharacters.transform, true);
 
+            // Scale the pumpkin to 0 across all axes to hide the pumpkin from the player's view
+            gameObject.transform.localScale = Vector3.zero;
+
+            showKeyForPumpkinPie = false;
+
             // DeliveryManager.instance.SpawnDeliveryArea(); // spawn the delivery target at a ramdom location 
 
-            bread1Sprite.sortingOrder = 0;
-
-            showKeyForBread1 = false;
             Pumpkin.showDirectionArrow = true; // Show the direction arrow for delivery area
 
-            Player.squirrel1.sprite = Resources.Load<Sprite>("Sprites/Characters/Cozy Jam 2024 Bread Cart");
+            Player.squirrel1.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel Pumpkin Pie Cart");
         }
 
-        if (showBreadKeyForStore && Input.GetKeyDown(KeyCode.P) && SelectCharacter.directionArrow.activeInHierarchy)
+        if (showPumpkinPieKeyForStore && Input.GetKeyDown(KeyCode.P) && SelectCharacter.directionArrow.activeInHierarchy)
         {
             GoldScript.instance.AddRemouveGold(10); // add gold 
             DialogueManager.instance.startDialogue(); // launch a dialogue after the delivery 
@@ -64,7 +63,7 @@ public class Bread : MonoBehaviour
             Destroy(gameObject); // Destroy the food
 
             SelectCharacter.directionArrow.SetActive(false); // Hide the direction arrow after completing delivery
-            pBreadKeyStore.SetActive(false); // Hide the key for delivering food to store
+            pPumpkinPieKeyStore.SetActive(false); // Hide the key for delivering food to store
 
             Pumpkin.showDirectionArrow = false; // Set show direction arrow false to hide it
 
@@ -72,25 +71,25 @@ public class Bread : MonoBehaviour
         }
 
         // Show or hide the keys for food on screen
-        if (showKeyForBread1)
+        if (showKeyForPumpkinPie)
         {
-            pKeyBread1.SetActive(true);
+            pPumpkinPieKey.SetActive(true);
         }
 
-        else if (!showKeyForBread1)
+        else if (!showKeyForPumpkinPie)
         {
-            pKeyBread1.SetActive(false);
+            pPumpkinPieKey.SetActive(false);
         }
 
         // Show or hide the keys for store on screen
-        if (showBreadKeyForStore)
+        if (showPumpkinPieKeyForStore)
         {
-            pBreadKeyStore.SetActive(true);
+            pPumpkinPieKeyStore.SetActive(true);
         }
 
-        else if (!showBreadKeyForStore)
+        else if (!showPumpkinPieKeyForStore)
         {
-            pBreadKeyStore.SetActive(false);
+            pPumpkinPieKeyStore.SetActive(false);
         }
     }
 
@@ -98,12 +97,12 @@ public class Bread : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            showKeyForBread1 = true;
+            showKeyForPumpkinPie = true;
         }
 
         if (collision.gameObject.tag == "Store")
         {
-            showBreadKeyForStore = true;
+            showPumpkinPieKeyForStore = true;
         }
     }
 
@@ -111,12 +110,12 @@ public class Bread : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            showKeyForBread1 = true;
+            showKeyForPumpkinPie = true;
         }
 
         if (collision.gameObject.tag == "Store")
         {
-            showBreadKeyForStore = true;
+            showPumpkinPieKeyForStore = true;
         }
     }
 
@@ -124,12 +123,12 @@ public class Bread : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            showKeyForBread1 = false;
+            showKeyForPumpkinPie = false;
         }
 
         if (collision.gameObject.tag == "Store")
         {
-            showBreadKeyForStore = false;
+            showPumpkinPieKeyForStore = false;
         }
     }
 }
