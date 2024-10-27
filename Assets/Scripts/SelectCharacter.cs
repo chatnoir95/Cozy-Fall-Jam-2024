@@ -32,7 +32,7 @@ public class SelectCharacter : MonoBehaviour
     {
         // Initialize the canvas objects to find our objects inside the scene
         characterSelectorCanvas = GameObject.Find("Character Select Canvas").GetComponent<Canvas>();
-        level1Canvas = GameObject.Find("Level 1 Canvas").GetComponent<Canvas>();
+        level1Canvas = GameObject.Find("Level Canvas").GetComponent<Canvas>();
 
         playerCharacters = GameObject.Find("Player Characters");
 
