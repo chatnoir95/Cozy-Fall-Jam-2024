@@ -41,12 +41,12 @@ public class DialogueManager : MonoBehaviour
 
     public void startDialogue() // launch the dialogue in a specifique order. the dialogue panel will open, and letter will apears 
     {
-        Debug.Log("startdialogue");
+      //  Debug.Log("startdialogue");
         if (dialogue.characters.Count > dialogueIndex)
         {
             Player.canPlayerMove = false;
 
-            Debug.Log(dialogue.characters[dialogueIndex].characterName);
+            //Debug.Log(dialogue.characters[dialogueIndex].characterName);
             //DialogueCharacter character = dialogue.characters[dialogueIndex];
 
             characterNameText.text = dialogue.characters[dialogueIndex].characterName;
@@ -55,7 +55,7 @@ public class DialogueManager : MonoBehaviour
             textEffectScript.StartTypingDialogue();
 
             dialogueIndex++;
-
+            SFXScript.instance.LaunchSoundSFX(dialogue.characters[dialogueIndex].characterVoice);
             SFXScript.instance.StartTypingSFX(SFXScript.instance.typingSound1);
         }
         else { Debug.LogWarning("NO MORE DIALOGUE AVAILABLE"); }
@@ -64,7 +64,7 @@ public class DialogueManager : MonoBehaviour
 
     public void CloseDialoguePanel()
     {
-        SFXScript.typingSFXSource.Stop();
+        SFXScript.instance.typingSFXSource.Stop();
 
         Player.canPlayerMove = true;
 

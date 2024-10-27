@@ -6,7 +6,7 @@ public class SFXScript : MonoBehaviour
 {
 
     public AudioSource SFXSource;
-    public static AudioSource typingSFXSource;
+    public AudioSource typingSFXSource;
 
     public AudioClip typingSound1;
     // Start is called before the first frame update

@@ -24,13 +24,15 @@ public class TextEffectScript : MonoBehaviour
 
     IEnumerator TextGenerator()
     {
-        Debug.Log(dialogueText.Length);
+       // Debug.Log(dialogueText.Length);
         for (int i = 0; i <= dialogueText.Length; i++)
         {
             currentText = dialogueText.Substring(0, i);
             _TextMeshProUGUI.text = currentText; // make the letter write on the text 
             yield return new WaitForSeconds(typingSpeed); // time between 2 letter 
         }
+
+        SFXScript.instance.typingSFXSource.Stop();  // stop the typing song when the song is complete 
     }
 
     // Update is called once per frame
