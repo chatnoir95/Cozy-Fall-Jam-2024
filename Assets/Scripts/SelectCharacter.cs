@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SelectCharacter : MonoBehaviour
 {
     private Canvas characterSelectorCanvas;
-    private Canvas level1Canvas;
+    private Canvas levelCanvas;
 
     public static GameObject playerCharacters;
 
@@ -32,7 +32,7 @@ public class SelectCharacter : MonoBehaviour
     {
         // Initialize the canvas objects to find our objects inside the scene
         characterSelectorCanvas = GameObject.Find("Character Select Canvas").GetComponent<Canvas>();
-        level1Canvas = GameObject.Find("Level 1 Canvas").GetComponent<Canvas>();
+        levelCanvas = GameObject.Find("Level Canvas").GetComponent<Canvas>();
 
         playerCharacters = GameObject.Find("Player Characters");
 
@@ -83,7 +83,7 @@ public class SelectCharacter : MonoBehaviour
 
         // Show the character selector canvas but hide level 1 canvas
         characterSelectorCanvas.gameObject.SetActive(true);
-        level1Canvas.gameObject.SetActive(false);
+        levelCanvas.gameObject.SetActive(false);
 
         signControlsText.gameObject.SetActive(false);
 
@@ -207,8 +207,8 @@ public class SelectCharacter : MonoBehaviour
         superMarket.SetActive(true);
         home.SetActive(true);
 
-        // Show the level 1 canvas
-        level1Canvas.gameObject.SetActive(true);
+        // Show the level canvas
+        levelCanvas.gameObject.SetActive(true);
 
         isGamePaused = false; // Resume the game for us
 
@@ -263,8 +263,8 @@ public class SelectCharacter : MonoBehaviour
         superMarket.SetActive(true);
         home.SetActive(true);
 
-        // Show the level 1 canvas
-        level1Canvas.gameObject.SetActive(true);
+        // Show the level canvas
+        levelCanvas.gameObject.SetActive(true);
 
         isGamePaused = false; // Resume the game for us
 
@@ -319,8 +319,8 @@ public class SelectCharacter : MonoBehaviour
         superMarket.SetActive(false);
         home.SetActive(false);
 
-        // Hide the level 1 canvas
-        level1Canvas.gameObject.SetActive(false);
+        // Hide the level canvas
+        levelCanvas.gameObject.SetActive(false);
 
         directionArrow.SetActive(false);
 
