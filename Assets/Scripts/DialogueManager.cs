@@ -10,6 +10,7 @@ public class DialogueCharacter
     public string characterName;
     [TextArea(5, 10)]
     public string dialogue;
+    public AudioClip characterVoice;
 }
 [System.Serializable]
 public class Dialogues

@@ -640,13 +640,14 @@ MonoBehaviour:
   characterNameText: {fileID: 219734148}
   dialogue:
     characters:
-    - characterName: Squirel mum
+    - characterName: Squirel Mum
       dialogue: 'Et dolorem repellat non omnis itaque 33 neque debitis vel amet nemo
         ut dicta laborum non soluta dolores? Sit aperiam odit vel praesentium dolore
         eos voluptas reiciendis. Sit praesentium quis et dolorem numquam ab perferendis
         provident et maiores consectetur non fuga sint. Et velit molestiae ad optio
         nisi rem soluta ipsam quo libero voluptatibus et cumque itaque eos aliquam
         voluptatum sit omnis voluptatum! '
+      characterVoice: {fileID: 8300000, guid: 8c3f8b1f1f50d0b42b9155429f48822b, type: 3}
     - characterName: Baker Cow
       dialogue: 'Et dolorem repellat non omnis itaque 33 neque debitis vel amet nemo
         ut dicta laborum non soluta dolores? Sit aperiam odit vel praesentium dolore
@@ -654,6 +655,7 @@ MonoBehaviour:
         provident et maiores consectetur non fuga sint. Et velit molestiae ad optio
         nisi rem soluta ipsam quo libero voluptatibus et cumque itaque eos aliquam
         voluptatum sit omnis voluptatum! '
+      characterVoice: {fileID: 8300000, guid: 34b60e377a11168428dda99227e0e08a, type: 3}
     - characterName: Farm Dog
       dialogue: 'Et dolorem repellat non omnis itaque 33 neque debitis vel amet nemo
         ut dicta laborum non soluta dolores? Sit aperiam odit vel praesentium dolore
@@ -661,6 +663,7 @@ MonoBehaviour:
         provident et maiores consectetur non fuga sint. Et velit molestiae ad optio
         nisi rem soluta ipsam quo libero voluptatibus et cumque itaque eos aliquam
         voluptatum sit omnis voluptatum! '
+      characterVoice: {fileID: 8300000, guid: 9f41535c55666b04fb5fb44727efd72c, type: 3}
     - characterName: Lazy Racoon
       dialogue: 'Et dolorem repellat non omnis itaque 33 neque debitis vel amet nemo
         ut dicta laborum non soluta dolores? Sit aperiam odit vel praesentium dolore
@@ -668,13 +671,15 @@ MonoBehaviour:
         provident et maiores consectetur non fuga sint. Et velit molestiae ad optio
         nisi rem soluta ipsam quo libero voluptatibus et cumque itaque eos aliquam
         voluptatum sit omnis voluptatum! '
-    - characterName: chef bear
+      characterVoice: {fileID: 8300000, guid: 89d1191012eb8bb4fa30705121555d75, type: 3}
+    - characterName: Chef Bear
       dialogue: 'Et dolorem repellat non omnis itaque 33 neque debitis vel amet nemo
         ut dicta laborum non soluta dolores? Sit aperiam odit vel praesentium dolore
         eos voluptas reiciendis. Sit praesentium quis et dolorem numquam ab perferendis
         provident et maiores consectetur non fuga sint. Et velit molestiae ad optio
         nisi rem soluta ipsam quo libero voluptatibus et cumque itaque eos aliquam
         voluptatum sit omnis voluptatum! '
+      characterVoice: {fileID: 8300000, guid: 27ef09549f6e0aa45a96259605fd2fee, type: 3}
     - characterName: Cat Mum
       dialogue: 'Et dolorem repellat non omnis itaque 33 neque debitis vel amet nemo
         ut dicta laborum non soluta dolores? Sit aperiam odit vel praesentium dolore
@@ -682,6 +687,7 @@ MonoBehaviour:
         provident et maiores consectetur non fuga sint. Et velit molestiae ad optio
         nisi rem soluta ipsam quo libero voluptatibus et cumque itaque eos aliquam
         voluptatum sit omnis voluptatum! '
+      characterVoice: {fileID: 8300000, guid: dc6a3cd4821809740a4ce10c2a5190fc, type: 3}
 --- !u!1 &326615779
 GameObject:
   m_ObjectHideFlags: 3
