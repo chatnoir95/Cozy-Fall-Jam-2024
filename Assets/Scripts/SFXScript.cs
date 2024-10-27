@@ -6,9 +6,11 @@ public class SFXScript : MonoBehaviour
 {
 
     public AudioSource SFXSource;
-    public AudioSource typingSFXSource;
+    public AudioSource typingSFXSource, motorSFXSource;
 
-    public AudioClip typingSound1;
+    public AudioClip typingSound1,motorSound;
+
+    [SerializeField] private Rigidbody2D playerRb;
     // Start is called before the first frame update
 
     public static SFXScript instance;
@@ -40,6 +42,10 @@ public class SFXScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            motorSFXSource.volume = 0.6f;
+        }
+        else { motorSFXSource.volume = 0; }
     }
 }
