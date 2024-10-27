@@ -10,16 +10,12 @@ public class Player : MonoBehaviour
 
     private float playerSpeed;
 
-    public static SpriteRenderer squirrel1Sprite;
-
     public static bool canPlayerMove = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        squirrel1Sprite = GameObject.Find("Player Characters/Squirrel 1").GetComponent<SpriteRenderer>();
-
-        squirrel1Sprite.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel empty cart");
+        
 
         playerSpeed = 5.0f;
     }
@@ -44,14 +40,24 @@ public class Player : MonoBehaviour
         }
 
         // Flip the sprite image when player moves left or right
-        if (horizontalMovement <= -0.1f && canPlayerMove)
+        if (horizontalMovement <= -0.1f && canPlayerMove && SelectCharacter.squirrel1.activeInHierarchy)
         {
-            squirrel1Sprite.flipX = false;
+            SelectCharacter.squirrel1Sprite.flipX = false;
         }
 
-        if (horizontalMovement >= 0.1f && canPlayerMove)
+        else if (horizontalMovement >= 0.1f && canPlayerMove && SelectCharacter.squirrel1.activeInHierarchy)
         {
-            squirrel1Sprite.flipX = true;
+            SelectCharacter.squirrel1Sprite.flipX = true;
+        }
+
+        if (horizontalMovement <= -0.1f && canPlayerMove && SelectCharacter.squirrel2.activeInHierarchy)
+        {
+            SelectCharacter.squirrel2Sprite.flipX = false;
+        }
+
+        else if (horizontalMovement >= 0.1f && canPlayerMove && SelectCharacter.squirrel2.activeInHierarchy)
+        {
+            SelectCharacter.squirrel2Sprite.flipX = true;
         }
     }
 }

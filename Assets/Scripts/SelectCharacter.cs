@@ -7,14 +7,17 @@ using UnityEngine.UI;
 public class SelectCharacter : MonoBehaviour
 {
     private Canvas characterSelectorCanvas;
-    private Canvas level1Canvas;
+    private Canvas levelCanvas;
 
     public static GameObject playerCharacters;
-    private GameObject squirrel1, squirrel2, squirrel3;
+
+    public static GameObject squirrel1, squirrel2;
+    public static SpriteRenderer squirrel1Sprite, squirrel2Sprite;
+
     public static GameObject directionArrow;
 
-    private GameObject pumpkin, pumpkinPie, bread1, candyApple;
-    public static GameObject bakery, farmHouse, houseParty;
+    private GameObject pumpkin, pumpkinPie, bread1, candyApple, halloweenCandy;
+    public static GameObject bakery, farmHouse, houseParty, superMarket, home;
 
     private bool isGamePaused;
 
@@ -29,14 +32,16 @@ public class SelectCharacter : MonoBehaviour
     {
         // Initialize the canvas objects to find our objects inside the scene
         characterSelectorCanvas = GameObject.Find("Character Select Canvas").GetComponent<Canvas>();
-        level1Canvas = GameObject.Find("Level 1 Canvas").GetComponent<Canvas>();
+        levelCanvas = GameObject.Find("Level Canvas").GetComponent<Canvas>();
 
         playerCharacters = GameObject.Find("Player Characters");
 
         // These squirrels are just prototype objects, we don't have squirrel sprites just yet
         squirrel1 = GameObject.Find("Player Characters/Squirrel 1");
-        squirrel2 = GameObject.Find("Player Characters/Square for Squirrel 2");
-        squirrel3 = GameObject.Find("Player Characters/Triangle for Squirrel 3");
+        squirrel2 = GameObject.Find("Player Characters/Squirrel 2");
+
+        squirrel1Sprite = GameObject.Find("Player Characters/Squirrel 1").GetComponent<SpriteRenderer>();
+        squirrel2Sprite = GameObject.Find("Player Characters/Squirrel 2").GetComponent<SpriteRenderer>();
 
         directionArrow = GameObject.Find("Player Characters/Direction Arrow");
 
@@ -44,10 +49,13 @@ public class SelectCharacter : MonoBehaviour
         bread1 = GameObject.Find("Cozy Jam 2024 Bread");
         candyApple = GameObject.Find("Cozy Jam 2024 Candied Apple");
         pumpkinPie = GameObject.Find("Cozy Jam 2024 Pumpkin Pie");
+        halloweenCandy = GameObject.Find("Halloween Candy");
 
         bakery = GameObject.Find("Bakery");
         farmHouse = GameObject.Find("Farm House");
         houseParty = GameObject.Find("House Party");
+        superMarket = GameObject.Find("Supermarket");
+        home = GameObject.Find("Home");
 
         signControlsText = GameObject.Find("Character Select Canvas/Sign Controls Text").GetComponent<Text>();
 
@@ -56,7 +64,6 @@ public class SelectCharacter : MonoBehaviour
         // Let's hide the squirrels at start
         squirrel1.SetActive(false);
         squirrel2.SetActive(false);
-        squirrel3.SetActive(false);
 
         playerCharacters.SetActive(false);
 
@@ -65,15 +72,18 @@ public class SelectCharacter : MonoBehaviour
         bakery.SetActive(false);
         farmHouse.SetActive(false);
         houseParty.SetActive(false);
+        superMarket.SetActive(false);
+        home.SetActive(false);
 
         pumpkin.SetActive(false);
         bread1.SetActive(false);
         candyApple.SetActive(false);
         pumpkinPie.SetActive(false);
+        halloweenCandy.SetActive(false);
 
         // Show the character selector canvas but hide level 1 canvas
         characterSelectorCanvas.gameObject.SetActive(true);
-        level1Canvas.gameObject.SetActive(false);
+        levelCanvas.gameObject.SetActive(false);
 
         signControlsText.gameObject.SetActive(false);
 
@@ -160,7 +170,6 @@ public class SelectCharacter : MonoBehaviour
         // Show the 1st squirrel in gameplay when player presses squirrel 1 button (hide others just in case)
         squirrel1.SetActive(true);
         squirrel2.SetActive(false);
-        squirrel3.SetActive(false);
 
         if (Pumpkin.showDirectionArrow)
         {
@@ -187,12 +196,19 @@ public class SelectCharacter : MonoBehaviour
             pumpkinPie.SetActive(true);
         }
 
+        if (!halloweenCandy.IsDestroyed())
+        {
+            halloweenCandy.SetActive(true);
+        }
+
         bakery.SetActive(true); // delivery location will spawn at a random location after picking item
         farmHouse.SetActive(true);
         houseParty.SetActive(true);
+        superMarket.SetActive(true);
+        home.SetActive(true);
 
-        // Show the level 1 canvas
-        level1Canvas.gameObject.SetActive(true);
+        // Show the level canvas
+        levelCanvas.gameObject.SetActive(true);
 
         isGamePaused = false; // Resume the game for us
 
@@ -210,7 +226,6 @@ public class SelectCharacter : MonoBehaviour
         // Show the 2nd squirrel in gameplay when player presses squirrel 2 button (hide others just in case)
         squirrel1.SetActive(false);
         squirrel2.SetActive(true);
-        squirrel3.SetActive(false);
 
         if (Pumpkin.showDirectionArrow)
         {
@@ -237,62 +252,19 @@ public class SelectCharacter : MonoBehaviour
             pumpkinPie.SetActive(true);
         }
 
-        bakery.SetActive(true);
-        farmHouse.SetActive(true);
-        houseParty.SetActive(true);
-
-        // Show the level 1 canvas
-        level1Canvas.gameObject.SetActive(true);
-
-        isGamePaused = false; // Resume the game for us
-
-        // Play the second cozy track
-        gameMusic.clip = Resources.Load<AudioClip>("Music/GGA_CozyTrack_2");
-    }
-
-    public void PressSquirrel3Button()
-    {
-        // Hide the character selector canvas
-        characterSelectorCanvas.gameObject.SetActive(false);
-
-        playerCharacters.SetActive(true);
-
-        // Show the 3rd squirrel in gameplay when player presses squirrel 3 button (hide others just in case)
-        squirrel1.SetActive(false);
-        squirrel2.SetActive(false);
-        squirrel3.SetActive(true);
-
-        if (Pumpkin.showDirectionArrow)
+        if (!halloweenCandy.IsDestroyed())
         {
-            directionArrow.SetActive(true);
-        }
-
-        if (!pumpkin.IsDestroyed())
-        {
-            pumpkin.SetActive(true);
-        }
-
-        if (!bread1.IsDestroyed())
-        {
-            bread1.SetActive(true);
-        }
-
-        if (!candyApple.IsDestroyed())
-        {
-            candyApple.SetActive(true);
-        }
-
-        if (!pumpkinPie.IsDestroyed())
-        {
-            pumpkinPie.SetActive(true);
+            halloweenCandy.SetActive(true);
         }
 
         bakery.SetActive(true);
         farmHouse.SetActive(true);
         houseParty.SetActive(true);
+        superMarket.SetActive(true);
+        home.SetActive(true);
 
-        // Show the level 1 canvas
-        level1Canvas.gameObject.SetActive(true);
+        // Show the level canvas
+        levelCanvas.gameObject.SetActive(true);
 
         isGamePaused = false; // Resume the game for us
 
@@ -310,7 +282,6 @@ public class SelectCharacter : MonoBehaviour
         // Hide all the squirrels
         squirrel1.SetActive(false);
         squirrel2.SetActive(false);
-        squirrel3.SetActive(false);
 
         if (Pumpkin.showDirectionArrow)
         {
@@ -337,12 +308,19 @@ public class SelectCharacter : MonoBehaviour
             pumpkinPie.SetActive(false);
         }
 
+        if (!halloweenCandy.IsDestroyed())
+        {
+            halloweenCandy.SetActive(false);
+        }
+
         bakery.SetActive(false);
         farmHouse.SetActive(false);
         houseParty.SetActive(false);
+        superMarket.SetActive(false);
+        home.SetActive(false);
 
-        // Hide the level 1 canvas
-        level1Canvas.gameObject.SetActive(false);
+        // Hide the level canvas
+        levelCanvas.gameObject.SetActive(false);
 
         directionArrow.SetActive(false);
 
