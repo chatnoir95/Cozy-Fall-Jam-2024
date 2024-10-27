@@ -11,6 +11,7 @@ public class DialogueCharacter
     [TextArea(5, 10)]
     public string dialogue;
     public AudioClip characterVoice;
+    public Sprite NPCSprite;
 }
 [System.Serializable]
 public class Dialogues
@@ -23,7 +24,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject _dialoguePanel;
     [SerializeField] TextEffectScript textEffectScript;
     [SerializeField] TextMeshProUGUI characterNameText;
-
+    [SerializeField] Image NPCTextImage;
     public Dialogues dialogue;
 
     private int dialogueIndex = 0;
@@ -54,9 +55,13 @@ public class DialogueManager : MonoBehaviour
             textEffectScript.dialogueText = dialogue.characters[dialogueIndex].dialogue;
             textEffectScript.StartTypingDialogue();
 
-            dialogueIndex++;
+            
             SFXScript.instance.LaunchSoundSFX(dialogue.characters[dialogueIndex].characterVoice);
             SFXScript.instance.StartTypingSFX(SFXScript.instance.typingSound1);
+
+            NPCTextImage.sprite = dialogue.characters[dialogueIndex].NPCSprite ; // put the sprite on screen
+
+            dialogueIndex++;
         }
         else { Debug.LogWarning("NO MORE DIALOGUE AVAILABLE"); }
 
