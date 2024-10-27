@@ -4,9 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Store
   - Arrow
   - DeliveryArea1
+  - FarmHouse
+  - BakeryStore
+  - HouseParty
   layers:
   - Default
   - TransparentFX

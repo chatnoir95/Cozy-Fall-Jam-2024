@@ -5,10 +5,12 @@ using UnityEngine.VFX;
 
 public class Pumpkin : MonoBehaviour
 {
-    private GameObject pPumpkinKey;
-    private GameObject pPumpkinKeyStore;
+    private GameObject pumpkinKey;
+    private GameObject housePartyKey1;
 
     public static bool showDirectionArrow;
+
+    private bool collectedPumpkin = false;
 
     private bool showKeyForPumpkin;
     private bool showPumpkinKeyForStore;
@@ -18,11 +20,11 @@ public class Pumpkin : MonoBehaviour
     {
         showDirectionArrow = false;
 
-        pPumpkinKey = GameObject.Find("Cozy Jam 2024 Pumpkin/P key pumpkin");
-        pPumpkinKeyStore = GameObject.Find("Store/P key store");
+        pumpkinKey = GameObject.Find("Cozy Jam 2024 Pumpkin/P key pumpkin");
+        housePartyKey1 = GameObject.Find("House Party/P key 1");
 
-        pPumpkinKey.SetActive(false);
-        pPumpkinKeyStore.SetActive(false);
+        pumpkinKey.SetActive(false);
+        housePartyKey1.SetActive(false);
 
         showKeyForPumpkin = false;
         showPumpkinKeyForStore = false;
@@ -31,6 +33,11 @@ public class Pumpkin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (collectedPumpkin)
+        {
+            LookAtHouseParty();
+        }
+
         // Show or hide the direction arrows on top of player
         if (showDirectionArrow)
         {
@@ -40,6 +47,8 @@ public class Pumpkin : MonoBehaviour
         else if (!showDirectionArrow)
         {
             SelectCharacter.directionArrow.SetActive(false);
+
+            SelectCharacter.directionArrow.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
         }
 
         // If the player collided with the food and pressed the P key
@@ -52,6 +61,7 @@ public class Pumpkin : MonoBehaviour
             gameObject.transform.localScale = Vector3.zero;
 
             showKeyForPumpkin = false;
+            collectedPumpkin = true;
 
             // DeliveryManager.instance.SpawnDeliveryArea(); // spawn the delivery target at a ramdom location 
 
@@ -67,8 +77,10 @@ public class Pumpkin : MonoBehaviour
 
             Destroy(gameObject); // Destroy the food
 
+            collectedPumpkin = false;
+
             SelectCharacter.directionArrow.SetActive(false); // Hide the direction arrow after completing delivery
-            pPumpkinKeyStore.SetActive(false); // Hide the key for delivering food to store
+            housePartyKey1.SetActive(false); // Hide the key for delivering food to store
 
             showDirectionArrow = false; // Set show direction arrow false to hide it
 
@@ -78,23 +90,90 @@ public class Pumpkin : MonoBehaviour
         // Show or hide the keys for food on screen
         if (showKeyForPumpkin)
         {
-            pPumpkinKey.SetActive(true);
+            pumpkinKey.SetActive(true);
         }
 
         else if (!showKeyForPumpkin)
         {
-            pPumpkinKey.SetActive(false);
+            pumpkinKey.SetActive(false);
         }
 
         // Show or hide the keys for store on screen
         if (showPumpkinKeyForStore)
         {
-            pPumpkinKeyStore.SetActive(true);
+            housePartyKey1.SetActive(true);
         }
 
         else if (!showPumpkinKeyForStore)
         {
-            pPumpkinKeyStore.SetActive(false);
+            housePartyKey1.SetActive(false);
+        }
+    }
+
+    private void LookAtHouseParty()
+    {
+        /* If the store's y position is equal to the player's y position and player's x position is greater than
+        the store's x position */
+        if (SelectCharacter.houseParty.transform.position.x < SelectCharacter.playerCharacters.transform.position.x &&
+            SelectCharacter.houseParty.transform.position.y == SelectCharacter.playerCharacters.transform.position.y)
+        {
+            SelectCharacter.directionArrow.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 180.0f);
+        }
+
+        /* If the store's y position is equal to the player's y position and player's x position is less than
+        the store's x position */
+        else if (SelectCharacter.houseParty.transform.position.x > SelectCharacter.playerCharacters.transform.position.x &&
+            SelectCharacter.houseParty.transform.position.y == SelectCharacter.playerCharacters.transform.position.y)
+        {
+            SelectCharacter.directionArrow.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+        }
+
+        /* If the store's y position is less than the player's y position and player's x position is greater than
+        the store's x position */
+        else if (SelectCharacter.houseParty.transform.position.x < SelectCharacter.playerCharacters.transform.position.x &&
+            SelectCharacter.houseParty.transform.position.y < SelectCharacter.playerCharacters.transform.position.y)
+        {
+            SelectCharacter.directionArrow.transform.rotation = Quaternion.Euler(0.0f, 0.0f, -135.0f);
+        }
+
+        /* If the store's y position is greater than the player's y position and player's x position is greater than
+        the store's x position */
+        else if (SelectCharacter.houseParty.transform.position.x < SelectCharacter.playerCharacters.transform.position.x &&
+            SelectCharacter.houseParty.transform.position.y > SelectCharacter.playerCharacters.transform.position.y)
+        {
+            SelectCharacter.directionArrow.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 135.0f);
+        }
+
+        /* If the store's y position is less than the player's y position and player's x position is less than
+        the store's x position */
+        else if (SelectCharacter.houseParty.transform.position.x > SelectCharacter.playerCharacters.transform.position.x &&
+            SelectCharacter.houseParty.transform.position.y < SelectCharacter.playerCharacters.transform.position.y)
+        {
+            SelectCharacter.directionArrow.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 315.0f);
+        }
+
+        /* If the store's y position is greater than the player's y position and player's x position is less than
+        the store's x position */
+        else if (SelectCharacter.houseParty.transform.position.x > SelectCharacter.playerCharacters.transform.position.x &&
+            SelectCharacter.houseParty.transform.position.y > SelectCharacter.playerCharacters.transform.position.y)
+        {
+            SelectCharacter.directionArrow.transform.rotation = Quaternion.Euler(0.0f, 0.0f, -315.0f);
+        }
+
+        /* If the store's y position is less than the player's y position and player's x position is equal to
+        the store's x position */
+        else if (SelectCharacter.houseParty.transform.position.x == SelectCharacter.playerCharacters.transform.position.x &&
+            SelectCharacter.houseParty.transform.position.y < SelectCharacter.playerCharacters.transform.position.y)
+        {
+            SelectCharacter.directionArrow.transform.rotation = Quaternion.Euler(0.0f, 0.0f, -90.0f);
+        }
+
+        /* If the store's y position is greater than the player's y position and player's x position is equal to
+        the store's x position */
+        else if (SelectCharacter.houseParty.transform.position.x == SelectCharacter.playerCharacters.transform.position.x &&
+            SelectCharacter.houseParty.transform.position.y > SelectCharacter.playerCharacters.transform.position.y)
+        {
+            SelectCharacter.directionArrow.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 90.0f);
         }
     }
 
@@ -105,7 +184,7 @@ public class Pumpkin : MonoBehaviour
             showKeyForPumpkin = true;
         }
 
-        if (collision.gameObject.tag == "Store")
+        if (collision.gameObject.tag == "HouseParty")
         {
             showPumpkinKeyForStore = true;
         }
@@ -118,7 +197,7 @@ public class Pumpkin : MonoBehaviour
             showKeyForPumpkin = true;
         }
 
-        if (collision.gameObject.tag == "Store")
+        if (collision.gameObject.tag == "HouseParty")
         {
             showPumpkinKeyForStore = true;
         }
@@ -131,7 +210,7 @@ public class Pumpkin : MonoBehaviour
             showKeyForPumpkin = false;
         }
 
-        if (collision.gameObject.tag == "Store")
+        if (collision.gameObject.tag == "HouseParty")
         {
             showPumpkinKeyForStore = false;
         }

@@ -13,9 +13,8 @@ public class SelectCharacter : MonoBehaviour
     private GameObject squirrel1, squirrel2, squirrel3;
     public static GameObject directionArrow;
 
-    private GameObject store;
-
     private GameObject pumpkin, pumpkinPie, bread1, candyApple;
+    public static GameObject bakery, farmHouse, houseParty;
 
     private bool isGamePaused;
 
@@ -46,7 +45,9 @@ public class SelectCharacter : MonoBehaviour
         candyApple = GameObject.Find("Cozy Jam 2024 Candied Apple");
         pumpkinPie = GameObject.Find("Cozy Jam 2024 Pumpkin Pie");
 
-        store = GameObject.Find("Store");
+        bakery = GameObject.Find("Bakery");
+        farmHouse = GameObject.Find("Farm House");
+        houseParty = GameObject.Find("House Party");
 
         signControlsText = GameObject.Find("Character Select Canvas/Sign Controls Text").GetComponent<Text>();
 
@@ -60,7 +61,10 @@ public class SelectCharacter : MonoBehaviour
         playerCharacters.SetActive(false);
 
         directionArrow.SetActive(false);
-        store.SetActive(false);
+
+        bakery.SetActive(false);
+        farmHouse.SetActive(false);
+        houseParty.SetActive(false);
 
         pumpkin.SetActive(false);
         bread1.SetActive(false);
@@ -183,7 +187,9 @@ public class SelectCharacter : MonoBehaviour
             pumpkinPie.SetActive(true);
         }
 
-        store.SetActive(true); // delivery location will spawn at a random location after picking item
+        bakery.SetActive(true); // delivery location will spawn at a random location after picking item
+        farmHouse.SetActive(true);
+        houseParty.SetActive(true);
 
         // Show the level 1 canvas
         level1Canvas.gameObject.SetActive(true);
@@ -231,7 +237,9 @@ public class SelectCharacter : MonoBehaviour
             pumpkinPie.SetActive(true);
         }
 
-        store.SetActive(true);
+        bakery.SetActive(true);
+        farmHouse.SetActive(true);
+        houseParty.SetActive(true);
 
         // Show the level 1 canvas
         level1Canvas.gameObject.SetActive(true);
@@ -279,7 +287,9 @@ public class SelectCharacter : MonoBehaviour
             pumpkinPie.SetActive(true);
         }
 
-        store.SetActive(true);
+        bakery.SetActive(true);
+        farmHouse.SetActive(true);
+        houseParty.SetActive(true);
 
         // Show the level 1 canvas
         level1Canvas.gameObject.SetActive(true);
@@ -327,7 +337,9 @@ public class SelectCharacter : MonoBehaviour
             pumpkinPie.SetActive(false);
         }
 
-        store.SetActive(false);
+        bakery.SetActive(false);
+        farmHouse.SetActive(false);
+        houseParty.SetActive(false);
 
         // Hide the level 1 canvas
         level1Canvas.gameObject.SetActive(false);

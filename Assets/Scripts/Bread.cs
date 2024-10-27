@@ -4,31 +4,38 @@ using UnityEngine;
 
 public class Bread : MonoBehaviour
 {
-    private GameObject pKeyBread1;
-    private GameObject pBreadKeyStore;
+    private GameObject bBreadKey;
+    private GameObject bakeryKey;
 
-    private bool showKeyForBread1;
-    private bool showBreadKeyForStore;
+    private bool showKeyForBread;
+    private bool showKeyForBakery;
+
+    private bool collectedBread = false;
 
     private SpriteRenderer bread1Sprite;
 
     // Start is called before the first frame update
     void Start()
     {
-        pKeyBread1 = GameObject.Find("Cozy Jam 2024 Bread/B key bread 1");
-        pBreadKeyStore = GameObject.Find("Store/B key store");
+        bBreadKey = GameObject.Find("Cozy Jam 2024 Bread/B key bread 1");
+        bakeryKey = GameObject.Find("Bakery/B key");
 
         bread1Sprite = GetComponent<SpriteRenderer>();
 
-        pKeyBread1.SetActive(false);
-        pBreadKeyStore.SetActive(false);
+        bBreadKey.SetActive(false);
+        bakeryKey.SetActive(false);
 
-        showKeyForBread1 = false;
+        showKeyForBread = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (collectedBread)
+        {
+            LookAtBakery();
+        }
+
         // Show or hide the direction arrows on top of player
         if (Pumpkin.showDirectionArrow)
         {
@@ -38,33 +45,42 @@ public class Bread : MonoBehaviour
         else if (!Pumpkin.showDirectionArrow)
         {
             SelectCharacter.directionArrow.SetActive(false);
+
+            SelectCharacter.directionArrow.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
         }
 
         // If the player collided with the bread and pressed the B key
-        if (showKeyForBread1 && Input.GetKeyDown(KeyCode.B))
+        if (showKeyForBread && Input.GetKeyDown(KeyCode.B))
         {
             // Place the food object on the player
             gameObject.transform.SetParent(SelectCharacter.playerCharacters.transform, true);
+
+            // Scale the bread to 0 across all axes to hide the bread from the player's view
+            gameObject.transform.localScale = Vector3.zero;
 
             // DeliveryManager.instance.SpawnDeliveryArea(); // spawn the delivery target at a ramdom location 
 
             bread1Sprite.sortingOrder = 0;
 
-            showKeyForBread1 = false;
+            showKeyForBread = false;
+            collectedBread = true;
+
             Pumpkin.showDirectionArrow = true; // Show the direction arrow for delivery area
 
             Player.squirrel1Sprite.sprite = Resources.Load<Sprite>("Sprites/Characters/Cozy Jam 2024 Bread Cart");
         }
 
-        if (showBreadKeyForStore && Input.GetKeyDown(KeyCode.B) && SelectCharacter.directionArrow.activeInHierarchy)
+        if (showKeyForBakery && Input.GetKeyDown(KeyCode.B) && SelectCharacter.directionArrow.activeInHierarchy)
         {
             GoldScript.instance.AddRemouveGold(10); // add gold 
             DialogueManager.instance.startDialogue(); // launch a dialogue after the delivery 
 
             Destroy(gameObject); // Destroy the food
 
+            collectedBread = false;
+
             SelectCharacter.directionArrow.SetActive(false); // Hide the direction arrow after completing delivery
-            pBreadKeyStore.SetActive(false); // Hide the key for delivering food to store
+            bakeryKey.SetActive(false); // Hide the key for delivering food to store
 
             Pumpkin.showDirectionArrow = false; // Set show direction arrow false to hide it
 
@@ -72,25 +88,92 @@ public class Bread : MonoBehaviour
         }
 
         // Show or hide the keys for food on screen
-        if (showKeyForBread1)
+        if (showKeyForBread)
         {
-            pKeyBread1.SetActive(true);
+            bBreadKey.SetActive(true);
         }
 
-        else if (!showKeyForBread1)
+        else if (!showKeyForBread)
         {
-            pKeyBread1.SetActive(false);
+            bBreadKey.SetActive(false);
         }
 
         // Show or hide the keys for store on screen
-        if (showBreadKeyForStore)
+        if (showKeyForBakery)
         {
-            pBreadKeyStore.SetActive(true);
+            bakeryKey.SetActive(true);
         }
 
-        else if (!showBreadKeyForStore)
+        else if (!showKeyForBakery)
         {
-            pBreadKeyStore.SetActive(false);
+            bakeryKey.SetActive(false);
+        }
+    }
+
+    private void LookAtBakery()
+    {
+        /* If the store's y position is equal to the player's y position and player's x position is greater than
+        the store's x position */
+        if (SelectCharacter.farmHouse.transform.position.x < SelectCharacter.playerCharacters.transform.position.x &&
+            SelectCharacter.farmHouse.transform.position.y == SelectCharacter.playerCharacters.transform.position.y)
+        {
+            SelectCharacter.directionArrow.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 180.0f);
+        }
+
+        /* If the store's y position is equal to the player's y position and player's x position is less than
+        the store's x position */
+        else if (SelectCharacter.farmHouse.transform.position.x > SelectCharacter.playerCharacters.transform.position.x &&
+            SelectCharacter.farmHouse.transform.position.y == SelectCharacter.playerCharacters.transform.position.y)
+        {
+            SelectCharacter.directionArrow.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+        }
+
+        /* If the store's y position is less than the player's y position and player's x position is greater than
+        the store's x position */
+        else if (SelectCharacter.farmHouse.transform.position.x < SelectCharacter.playerCharacters.transform.position.x &&
+            SelectCharacter.farmHouse.transform.position.y < SelectCharacter.playerCharacters.transform.position.y)
+        {
+            SelectCharacter.directionArrow.transform.rotation = Quaternion.Euler(0.0f, 0.0f, -135.0f);
+        }
+
+        /* If the store's y position is greater than the player's y position and player's x position is greater than
+        the store's x position */
+        else if (SelectCharacter.farmHouse.transform.position.x < SelectCharacter.playerCharacters.transform.position.x &&
+            SelectCharacter.farmHouse.transform.position.y > SelectCharacter.playerCharacters.transform.position.y)
+        {
+            SelectCharacter.directionArrow.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 135.0f);
+        }
+
+        /* If the store's y position is less than the player's y position and player's x position is less than
+        the store's x position */
+        else if (SelectCharacter.farmHouse.transform.position.x > SelectCharacter.playerCharacters.transform.position.x &&
+            SelectCharacter.farmHouse.transform.position.y < SelectCharacter.playerCharacters.transform.position.y)
+        {
+            SelectCharacter.directionArrow.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 315.0f);
+        }
+
+        /* If the store's y position is greater than the player's y position and player's x position is less than
+        the store's x position */
+        else if (SelectCharacter.farmHouse.transform.position.x > SelectCharacter.playerCharacters.transform.position.x &&
+            SelectCharacter.farmHouse.transform.position.y > SelectCharacter.playerCharacters.transform.position.y)
+        {
+            SelectCharacter.directionArrow.transform.rotation = Quaternion.Euler(0.0f, 0.0f, -315.0f);
+        }
+
+        /* If the store's y position is less than the player's y position and player's x position is equal to
+        the store's x position */
+        else if (SelectCharacter.farmHouse.transform.position.x == SelectCharacter.playerCharacters.transform.position.x &&
+            SelectCharacter.farmHouse.transform.position.y < SelectCharacter.playerCharacters.transform.position.y)
+        {
+            SelectCharacter.directionArrow.transform.rotation = Quaternion.Euler(0.0f, 0.0f, -90.0f);
+        }
+
+        /* If the store's y position is greater than the player's y position and player's x position is equal to
+        the store's x position */
+        else if (SelectCharacter.farmHouse.transform.position.x == SelectCharacter.playerCharacters.transform.position.x &&
+            SelectCharacter.farmHouse.transform.position.y > SelectCharacter.playerCharacters.transform.position.y)
+        {
+            SelectCharacter.directionArrow.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 90.0f);
         }
     }
 
@@ -98,12 +181,12 @@ public class Bread : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            showKeyForBread1 = true;
+            showKeyForBread = true;
         }
 
-        if (collision.gameObject.tag == "Store")
+        if (collision.gameObject.tag == "BakeryStore")
         {
-            showBreadKeyForStore = true;
+            showKeyForBakery = true;
         }
     }
 
@@ -111,12 +194,12 @@ public class Bread : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            showKeyForBread1 = true;
+            showKeyForBread = true;
         }
 
-        if (collision.gameObject.tag == "Store")
+        if (collision.gameObject.tag == "BakeryStore")
         {
-            showBreadKeyForStore = true;
+            showKeyForBakery = true;
         }
     }
 
@@ -124,12 +207,12 @@ public class Bread : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            showKeyForBread1 = false;
+            showKeyForBread = false;
         }
 
-        if (collision.gameObject.tag == "Store")
+        if (collision.gameObject.tag == "BakeryStore")
         {
-            showBreadKeyForStore = false;
+            showKeyForBakery = false;
         }
     }
 }
