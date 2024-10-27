@@ -5,7 +5,8 @@ using UnityEngine;
 public class SFXScript : MonoBehaviour
 {
 
-    public AudioSource SFXSource, typingSFXSource;
+    public AudioSource SFXSource;
+    public static AudioSource typingSFXSource;
 
     public AudioClip typingSound1;
     // Start is called before the first frame update
@@ -20,7 +21,8 @@ public class SFXScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     //  SFXSource = GetComponent<AudioSource>();
+        //  SFXSource = GetComponent<AudioSource>();
+        typingSFXSource = GameObject.Find("SFXManager/TypingAudio").GetComponent<AudioSource>();
     }
 
     public void LaunchSoundSFX(AudioClip audio)
@@ -32,7 +34,7 @@ public class SFXScript : MonoBehaviour
     public void StartTypingSFX(AudioClip audio)
     {
         typingSFXSource.clip = audio;
-        typingSFXSource.Play(); 
+        typingSFXSource.Play();
     }
 
     // Update is called once per frame
