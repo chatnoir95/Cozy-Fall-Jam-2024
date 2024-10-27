@@ -11,6 +11,7 @@ public class Bread : MonoBehaviour
     private bool showKeyForBakery;
 
     private bool collectedBread = false;
+    public static bool canCollectBread = true;
 
     private SpriteRenderer bread1Sprite;
 
@@ -34,6 +35,11 @@ public class Bread : MonoBehaviour
         if (collectedBread)
         {
             LookAtBakery();
+
+            Pumpkin.canCollectPumpkin = false;
+            PumpkinPie.canCollectPumpkinPie = false;
+            CandyApple.canCollectCandyApple = false;
+            HalloweenCandy.canCollectHalloweenCandy = false;
         }
 
         // Show or hide the direction arrows on top of player
@@ -50,7 +56,7 @@ public class Bread : MonoBehaviour
         }
 
         // If the player collided with the bread and pressed the B key
-        if (showKeyForBread && Input.GetKeyDown(KeyCode.B))
+        if (showKeyForBread && Input.GetKeyDown(KeyCode.B) && canCollectBread)
         {
             // Place the food object on the player
             gameObject.transform.SetParent(SelectCharacter.playerCharacters.transform, true);
@@ -67,11 +73,17 @@ public class Bread : MonoBehaviour
 
             Pumpkin.showDirectionArrow = true; // Show the direction arrow for delivery area
 
-            Player.squirrel1Sprite.sprite = Resources.Load<Sprite>("Sprites/Characters/Cozy Jam 2024 Bread Cart");
+            SelectCharacter.squirrel1Sprite.sprite = Resources.Load<Sprite>("Sprites/Characters/Cozy Jam 2024 Bread Cart");
+            SelectCharacter.squirrel2Sprite.sprite = Resources.Load<Sprite>("Sprites/Characters/GSquirrel Bread");
         }
 
         if (showKeyForBakery && Input.GetKeyDown(KeyCode.B) && SelectCharacter.directionArrow.activeInHierarchy)
         {
+            Pumpkin.canCollectPumpkin = true;
+            PumpkinPie.canCollectPumpkinPie = true;
+            CandyApple.canCollectCandyApple = true;
+            HalloweenCandy.canCollectHalloweenCandy = true;
+
             GoldScript.instance.AddRemouveGold(10); // add gold 
             DialogueManager.instance.startDialogue(); // launch a dialogue after the delivery 
 
@@ -84,7 +96,8 @@ public class Bread : MonoBehaviour
 
             Pumpkin.showDirectionArrow = false; // Set show direction arrow false to hide it
 
-            Player.squirrel1Sprite.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel empty cart");
+            SelectCharacter.squirrel1Sprite.sprite = Resources.Load<Sprite>("Sprites/Characters/Squirrel empty cart");
+            SelectCharacter.squirrel2Sprite.sprite = Resources.Load<Sprite>("Sprites/Characters/GSquirrel Empty");
         }
 
         // Show or hide the keys for food on screen

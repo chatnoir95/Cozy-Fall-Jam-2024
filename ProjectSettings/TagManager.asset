@@ -9,6 +9,8 @@ TagManager:
   - FarmHouse
   - BakeryStore
   - HouseParty
+  - SuperMarket
+  - Home
   layers:
   - Default
   - TransparentFX
